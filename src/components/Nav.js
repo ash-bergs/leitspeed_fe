@@ -12,7 +12,7 @@ import { withStyles } from '@material-ui/core/styles';
 import styles from '../styles/NavbarStyles'; 
 
 function Nav(props) {
-    const {classes} = props; 
+    const { classes } = props; 
 
     return(
         <div className={classes.root}>
