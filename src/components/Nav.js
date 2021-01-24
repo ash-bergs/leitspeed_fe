@@ -21,12 +21,9 @@ function Nav(props) {
                     <IconButton className={classes.menuButton} color="primary">
                         <span>English</span>
                     </IconButton>
-                
-                <Typography className={classes.title}
-                    variant="h5"
-                    color="inherit">
-                    LeitSpeed
-                </Typography>
+                    <IconButton className={classes.title} color="primary">
+                        <span>LeitSpeed</span>
+                    </IconButton>
                 <Switch />
                 <div className={classes.grow} />
                     <div className={classes.search}>

@@ -30,6 +30,7 @@ const styles = theme => ({
     }, 
     title: {
         // Below "sm" the title will not show at all
+        color: "white",
         display: "none", 
         [theme.breakpoints.up("sm")] : {
             // using the theme 

@@ -48,19 +48,6 @@ function TwoColGrid(props) {
 
 export default TwoColGrid; 
 
-
-/* 
-Design of Hero section: 
-a simple div with 2 divs inside - set to flex, default row 
-the inner divs will be set to column direction, the div on the left side holds an image
-Div on the right holds text, positioned absolutely to float across the hero section
-*/
-
-/* 
-//*TODO At this point I need to consider how I want to style this - I'm thinking using Bootstrap might be a good idea
-//* Decided to use Material UI! Learning to override main styles by passing classNames 
-//* For now I'll bring it in and redo the navbar today - Sunday 1/23 
-But I am going to research up and coming style libraries 
-for now I am applying the basic skeleton of what I want the page to look like. Using limited classes and some basic, vanilla CSS 
-Flexbox is used to position the elements in Hero. I would want different typefaces, to decrease the distance between the h1 and the p elements, and to crop/use the photo more beautifully 
-*/
+// This component started as something else, when I realized I was making something that I might be able to use later 
+// But it wasn't right in the moment 
+// I've renamed it this weird name, waiting for the moment when I realize its purpose in the project 
