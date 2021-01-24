@@ -6,7 +6,6 @@ import InputBase from '@material-ui/core/InputBase';
 import SearchIcon from '@material-ui/icons/Search'; 
 import Switch from '@material-ui/core/Switch'; 
 import Toolbar from '@material-ui/core/Toolbar'; 
-import Typography from '@material-ui/core/Typography'; 
 
 import { withStyles } from '@material-ui/core/styles'; 
 import styles from '../styles/NavbarStyles'; 
@@ -21,12 +20,9 @@ function Nav(props) {
                     <IconButton className={classes.menuButton} color="primary">
                         <span>English</span>
                     </IconButton>
-                
-                <Typography className={classes.title}
-                    variant="h5"
-                    color="inherit">
-                    LeitSpeed
-                </Typography>
+                    <IconButton className={classes.title} color="primary">
+                        <span>LeitSpeed</span>
+                    </IconButton>
                 <Switch />
                 <div className={classes.grow} />
                     <div className={classes.search}>

@@ -1,11 +1,9 @@
 import React from 'react'; 
 import { Link } from 'react-router-dom'; 
 
-import Container from '@material-ui/core/Container'; 
 // Container centers itself(not its inner content) horizontally 
-// Can be nested but not necessary 
-//TODO I was doing this myself with the Container common component, I should get rid of that so this isn't confusing 
-import { Typography, Button } from '@material-ui/core';
+// Can be nested but not necessary
+import { Container, Typography, Button } from '@material-ui/core';
 import { makeStyles } from '@material-ui/core/styles'; 
 import { fade } from '@material-ui/core/styles/colorManipulator'; 
 
@@ -21,7 +19,9 @@ const useStyles = makeStyles((theme) => ({
         backgroundSize: "cover"
     }, 
     title: {
-        color: theme.palette.primary.dark
+        color: theme.palette.primary.dark, 
+        fontWeight: 500,
+        letterSpacing: '0.5px'
     }, 
     button: {
         width: "20%", 
@@ -29,11 +29,15 @@ const useStyles = makeStyles((theme) => ({
         marginTop: "5%",
         backgroundColor: fade(theme.palette.secondary.main, 0.85),
         color: 'white',
+        transition: 'all 1s',
         '&:hover': {
             backgroundColor: theme.palette.secondary.main
+            //TODO move up y axis & give box shadow
         }
     }
 })); 
+//TODO 👆 I should abstract this to a style file with FormStyles and NavbarStyles - perhaps HeroStyles 
+// Wrap using withStyles
 
 function Hero() {
     const classes = useStyles(); 
@@ -55,3 +59,5 @@ function Hero() {
 }
 
 export default Hero; 
+
+//TODO - I want the button to elevate (i.e. move up the y-axis and get a shadow) when it's hovered - add that effect 
