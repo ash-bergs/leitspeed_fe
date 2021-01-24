@@ -6,7 +6,6 @@ import InputBase from '@material-ui/core/InputBase';
 import SearchIcon from '@material-ui/icons/Search'; 
 import Switch from '@material-ui/core/Switch'; 
 import Toolbar from '@material-ui/core/Toolbar'; 
-import Typography from '@material-ui/core/Typography'; 
 
 import { withStyles } from '@material-ui/core/styles'; 
 import styles from '../styles/NavbarStyles'; 
