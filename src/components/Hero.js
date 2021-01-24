@@ -5,7 +5,6 @@ import Container from '@material-ui/core/Container';
 // Can be nested but not necessary 
 //TODO I was doing this myself with the Container common component, I should get rid of that so this isn't confusing 
 import { Typography, Button } from '@material-ui/core';
-import { green, purple } from '@material-ui/core/colors'; 
 import { makeStyles } from '@material-ui/core/styles'; 
 import { fade } from '@material-ui/core/styles/colorManipulator'; 
 
