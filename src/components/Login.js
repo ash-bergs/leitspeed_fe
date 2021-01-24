@@ -4,7 +4,7 @@ import { Checkbox, FormControl, FormControlLabel, Input, InputLabel } from '@mat
 import Button from '@material-ui/core/Button'; 
 
 import { withStyles } from '@material-ui/core/styles'; 
-import styles from '../styles/RegisterStyles'; 
+import styles from '../styles/FormStyles'; 
 
 
 function Login(props) {
