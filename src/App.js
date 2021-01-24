@@ -5,6 +5,7 @@ import './App.css'
 
 import Hero from './components/Hero'; 
 import Nav from './components/Nav'; 
+import Login from './components/Login'; 
 
 function App() {
 
@@ -12,7 +13,8 @@ function App() {
     <React.Fragment>
     <Nav />
     <Router>
-      <Route path="/" component={Hero} />
+      <Route exact path="/" component={Hero} />
+      <Route path="/login" component={Login} /> 
       {/* Path to / is a welcome header, logo, etc that kind of thing - renders sign up form */}
       {/* Route to dashboard, protected - Renders Cards, Study lists?, Study game */}
       {/* Add/Edit Form - use one form to complete both tasks?? */}

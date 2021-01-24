@@ -1,4 +1,5 @@
 import React from 'react'; 
+import { Link } from 'react-router-dom'; 
 
 import Container from '@material-ui/core/Container'; 
 // Container centers itself(not its inner content) horizontally 
@@ -43,7 +44,12 @@ function Hero() {
                 Learn at Leitspeed
             </Typography>
             <Typography variant="h5">Remember almost anything, forever!</Typography>
-            <Button className={classes.button} aria-label="register as a new user">Join</Button>
+            <Button 
+                className={classes.button} 
+                aria-label="register as a new user"
+                component={Link}
+                to="/login"
+            >Login</Button>
         </Container>
     ); 
 }
