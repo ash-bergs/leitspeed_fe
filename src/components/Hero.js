@@ -60,4 +60,3 @@ function Hero() {
 
 export default Hero; 
 
-//TODO - I want the button to elevate (i.e. move up the y-axis and get a shadow) when it's hovered - add that effect 
