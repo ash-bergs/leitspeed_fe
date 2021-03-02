@@ -40,6 +40,7 @@ const useStyles = makeStyles((theme) => ({
 // Wrap using withStyles
 
 function Hero() {
+    // classes is the object built above ^ JS describing CSS rules
     const classes = useStyles(); 
 
     return(
