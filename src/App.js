@@ -26,3 +26,6 @@ function App() {
 }
 
 export default App;
+
+//TODO Now that I've made a Dashboard plan, App.js won't have to be concerned with the Cards component any longer. But first, we need a way for a user to login and get to the Dashboard in the first place. 
+

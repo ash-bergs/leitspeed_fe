@@ -11,7 +11,8 @@ import React from 'react'
 function Dashboard() {
     return (
         <div>
-            
+            <p>Welcome from the Dashboard</p>
+            <p>First TODO: Add the grid structure for the page! and get Material UI in the mix.</p>
         </div>
     )
 }
