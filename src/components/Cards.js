@@ -2,6 +2,8 @@ import React, { useState } from 'react';
 
 import Paper from '@material-ui/core/Paper'; 
 
+//TODO - this state needs to be lifted 🔽
+// eventually it will be coming from my API 
 import data from '../resources/CardsData'; 
 
 import FlashCard from './Card'; 
@@ -30,7 +32,11 @@ export default Cards;
 /* -------------------------------------------------------------------------- */
 /*                                 About Cards                                */
 /* 
-    Cards is a parent component, it will hold state, and actions concerned with it,
-    and pass it to the Card child component 
+    //Cards is a parent component, it will hold state, and actions concerned with it,
+    //and pass it to the Card child component 
+
+    * Update: Cards will *not* be concerned with state, it will only be rendered in the Dashboard. 
+    The Dashboard will be the "top level" component for Cards data 
+    The Cards component is now just concerned with displaying Card children
 */
 /* -------------------------------------------------------------------------- */
