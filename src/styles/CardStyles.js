@@ -1,4 +1,5 @@
 const styles = theme => ({
+    // root describes parent Card
     root: {
         width: "45%", 
         margin: "0 auto", 

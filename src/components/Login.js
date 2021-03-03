@@ -3,8 +3,12 @@ import React from 'react';
 import { Checkbox, FormControl, FormControlLabel, Input, InputLabel } from '@material-ui/core'; 
 import Button from '@material-ui/core/Button'; 
 
+
+// Instead of the USESTYLES hook that I used in other components, I'm using the WITHSTYLES hook in this component 
 import { withStyles } from '@material-ui/core/styles'; 
+// First import the hook
 import styles from '../styles/FormStyles'; 
+// then import the defined styles to pass into the hook
 
 
 function Login(props) {

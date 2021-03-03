@@ -41,6 +41,7 @@ const useStyles = makeStyles((theme) => ({
 
 function Hero() {
     // classes is the object built above ^ JS describing CSS rules
+    // useStyles hook can only be used with function components 
     const classes = useStyles(); 
 
     return(
