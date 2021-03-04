@@ -1,7 +1,7 @@
 import React from 'react'; 
 
 //* material UI components 
-import { Button, Container, Paper } from '@material-ui/core';
+import { Button, Container, Paper, Typography } from '@material-ui/core';
 //* material UI hooks
 import { withStyles } from '@material-ui/core/styles'; 
 
@@ -22,6 +22,8 @@ import styles from '../styles/DashboardStyles';
 // From Material UI: Container, Paper, Button, Typography 
 /* -------------------------------------------------------------------------- */
 
+//TODO The side panel should be abstracted into it's own component... I'm just realizing that. 
+
 function Dashboard({ classes }) {
     // destructure `classes` in the args 
     // ? does this object come to use from Material UI?
@@ -29,16 +31,28 @@ function Dashboard({ classes }) {
         // Container centers content horizontally 
         // bounded by the `maxWidth` property - large, medium, small. etc
         <Container className={classes.root} fixed>
+            
             <Paper className={classes.panelPaper}>
             {/*//TODO Style the buttons before adjusting its parent container any further - Need to refresh my Material UI/Button skills */}
-                <Button>Add Card</Button>
-                <Button>Add Deck</Button>
-                <Button>Study</Button>
+                <Container className={classes.panelUpper}>
+                    <Button className={classes.button} variant="outlined">Add Card</Button>
+                    <Button className={classes.button} variant="outlined">Add Deck</Button>
+                </Container>
+                <Container className={classes.panelLower}>
+                {/* "contained" Buttons are 'high-emphasis', I want this for the study button, so it will stand out compared to the others */}
+                    <Button className={classes.studyButton} variant="contained">Study</Button>
+                    <Container style={{ "border": "1px solid red"}}>
+                        <Typography variant="h4">Your Decks</Typography>
+                        <Typography variant="body1">Decks will be listed here</Typography>
+                    </Container>
+                </Container>
             </Paper>
+            
             {/* Paper component gives us something that feels like paper, flat, white, etc*/}
             <Paper className={classes.paper} elevation={2}>
                 <Cards /> 
             </Paper>
+
         </Container>
     )
 }

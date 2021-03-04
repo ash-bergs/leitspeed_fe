@@ -19,8 +19,32 @@ const styles = theme => ({
     // later it will holds Card components that render a users decks and leit-decks to update the state in Cards component 
     panelPaper: {
         margin: "1%", 
+        padding: "1%",
+        width: "25vw",
         display: "flex", 
-        flexDirection: "column"
+        flexDirection: "column", 
+    }, 
+    button: {
+
+    },
+    panelLower: {
+        // panelLower controls the panelPaper below the Add Card and Add Deck buttons. Starts with Submit button. 
+        padding: "1%",
+        // renders children in display: flex, and column direction
+        display: "flex", 
+        flexDirection: "column",
+    }, 
+    panelUpper: {
+        padding: "1%",
+        // display flex floats the Add Card and Add Deck button next to one another
+        display: "flex", 
+        // evenly use space around buttons
+        justifyContent: "space-around", 
+    }, 
+    studyButton: {
+        margin: "1%",
+        color: 'white', 
+        backgroundColor: theme.palette.secondary.light, 
     }
 }); 
 
