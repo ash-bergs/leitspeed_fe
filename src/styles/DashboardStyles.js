@@ -15,6 +15,8 @@ const styles = theme => ({
     paper: {
         margin: "1%",
     }, 
+    // panelPaper describes the Paper component that holds the buttons for users to add cards/decks, and enter study mode 
+    // later it will holds Card components that render a users decks and leit-decks to update the state in Cards component 
     panelPaper: {
         margin: "1%", 
         display: "flex", 
