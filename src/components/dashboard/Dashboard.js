@@ -1,12 +1,13 @@
 import React from 'react'; 
 
 //* material UI components 
-import { Button, Container, Paper, Typography } from '@material-ui/core';
+import { Container, Paper} from '@material-ui/core';
 //* material UI hooks
 import { withStyles } from '@material-ui/core/styles'; 
 
-import Cards from './Cards'; 
-import styles from '../styles/DashboardStyles'; 
+import Cards from '../Cards'; 
+import PanelLeft from './PanelLeft'; 
+import styles from '../../styles/DashboardStyles'; 
 //TODO - A component to render "rewards" - kind of like a shelf. This will go directly under the Nav bar. 
 //TODO - A component that renders user's individual decks 
 //TODO - A component that renders user's individual leit-decks 
@@ -31,23 +32,9 @@ function Dashboard({ classes }) {
         // Container centers content horizontally 
         // bounded by the `maxWidth` property - large, medium, small. etc
         <Container className={classes.root} fixed>
-            
-            <Paper className={classes.panelPaper}>
-            {/*//TODO Style the buttons before adjusting its parent container any further - Need to refresh my Material UI/Button skills */}
-                <Container className={classes.panelUpper}>
-                    <Button className={classes.button} variant="outlined">Add Card</Button>
-                    <Button className={classes.button} variant="outlined">Add Deck</Button>
-                </Container>
-                <Container className={classes.panelLower}>
-                {/* "contained" Buttons are 'high-emphasis', I want this for the study button, so it will stand out compared to the others */}
-                    <Button className={classes.studyButton} variant="contained">Study</Button>
-                    <Container style={{ "border": "1px solid red"}}>
-                        <Typography variant="h4">Your Decks</Typography>
-                        <Typography variant="body1">Decks will be listed here</Typography>
-                    </Container>
-                </Container>
-            </Paper>
-            
+                
+            <PanelLeft />
+
             {/* Paper component gives us something that feels like paper, flat, white, etc*/}
             <Paper className={classes.paper} elevation={2}>
                 <Cards /> 
@@ -58,3 +45,20 @@ function Dashboard({ classes }) {
 }
 
 export default withStyles(styles)(Dashboard);
+
+/* --------------------------------- Removed -------------------------------- */
+// <Paper className={classes.panelPaper}>
+//             <Container className={classes.panelUpper}>
+//             <Button className={classes.button} variant="outlined">Add Card</Button>
+//             <Button className={classes.button} variant="outlined">Add Deck</Button>
+//         </Container>
+//         <Container className={classes.panelLower}>
+//         {/* "contained" Buttons are 'high-emphasis', I want this for the study button, so it will stand out compared to the others */}
+//             <Button className={classes.studyButton} variant="contained">Study</Button>
+//             <Container style={{ "border": "1px solid red"}}>
+//                 <Typography variant="h4">Your Decks</Typography>
+//                 <Typography variant="body1">Decks will be listed here</Typography>
+//             </Container>
+//         </Container>
+//     </Paper>
+
