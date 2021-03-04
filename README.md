@@ -1,16 +1,14 @@
 # Learn with LeitSpeed! 
 
-The Leitner system was a method of studying developed by German science journalist, Sebastien Leitner in the 1970's. Leitner's approach hinged on using flashcards to study learning material using the principle of spaced repition - another learning principle explored by Leitner's predecessor, Hermann Ebbinghaus. Ebbinghause defined what he called "the forgetting curve" and the "spacing effect." 
+The Leitner system is a method of studying developed by the German science journalist, Sebastien Leitner, in the 1970's. His approach hinged on studying flashcards using the principle of spaced repition - a topic explored by Leitner's predecessor, Hermann Ebbinghaus. Ebbinghause defined what he called "the forgetting curve" and the "spacing effect." 
 
-Using these principles a student can tackle learning almost anything by spacing their learning, and lessening the forgetting curve. 
+Using these principles a student can tackle learning almost anything by spacing their learning, and flattening the forgetting curve. 
 
-With LeitSpeed you can make your own collection of digital flashcards, and study them using the Leitner system of spaced repitition. 
+With LeitSpeed you can make your own collection of digital flashcards, study them using the Leitner system of spaced repitition, and remember (almost) anything - forever! 
 
 ## Project Status: Under Construction 
 
-The project is just getting going. I'm building a backend with Node and Express, which will let user's create a profile, add cards, organize cards by deck, and study them as they wish. 
-
-Optionally, they can make certain decks public and share them with other learners. 
+This project is just getting off the ground. A backend API is being built in Node and Express, you can find that [ add link here ]
 
 ## Project Previews 
 
@@ -20,7 +18,9 @@ User Flow
 
 ![userflow](https://i.ibb.co/dg29Rgp/userflow.jpg)
 
-**Component: Dashboard** 
+----
+
+### **Component: Dashboard** 
 
 *Child Components: Cards (Card), DecksView (renders both total decks and the links to Leit-Decks?), Buttons - Add Card, Add Deck, Study Mode, View All Decks*
 
@@ -30,9 +30,12 @@ It will be concerned with state, and pass it to its child components (namely Car
 
 ![Dashboard-wireframe](https://i.ibb.co/qj19GLz/Contact.png)
 
+----
+
 ## Project Dependencies 
 
 The project currently uses this tech stack: 
+
 - react-router-dom - for routing between component views and around the app 
 - Material UI - The base of the styling is coming from the Material UI library. 
 - JSS - On top of Material UI, JSS styles the Material UI to our own custom settings (colors, etc.)
@@ -43,48 +46,28 @@ The project currently uses this tech stack:
 You will need Node and npm to clone down this project. 
 
 Installation - `npm install` 
+
 Start - `npm run dev` 
+
 To visit - `localhost:3000/` 
+
 
 ## Project Reflection 
 
-* What was the context of this project? 
-
+1. What is the context of this project? 
 This project is a personal side project. I love making and studying flashcards using the Leitner approach - and thought it would be so handy to have that in my phone! 
 
-- What did you set out to build? 
+2. What did you set out to build? 
+The project was started with the goal of building a way for learners to quickly make, organize, and study flashcards, with or without spaced repition. 
 
-I set out to build a studying app, where a user could easily make flashcards, create and share decks with peers, and study material using the principles of spaced repition, and flattening the forgetting curve. 
+The idea is that a card consists of a front and back - front being the question and back being the answer. 
 
-- Why is this project challenging & a good learning experience? 
+Optionally a user can add a subject (or topic) to organize the card into decks that can be studied together. 
 
-The most challenging aspect of this project so far has been the backend API [personal note: link to BE repo] - and tackling how I want to achieve spaced repition. 
+Notes (an array) can also hold optional notes on the card that might not have a place in the question or the answer. Extra notes and reminders, etc. 
 
-Right now my approach utilizes a piece of data, what I'll call the `leitnerNumber` to indicate what phase of spaced repition a card is curerntly in. 
+Users will also be able to share their cards, making a deck public will expose all the cards within. From there, others can fork the deck, or add cards from it to their own collections. 
 
-When the user starts `studyMode` they will be taken through the appropriate decks for that day (deck 1 is studied every day, deck 2 is studied every 3 days, and so on). 
-
-Should I: 
-
-- Combine both decks in study mode, so a user will go through both to complete the study session? 
-- Go through the decks for that day individually, starting with deck 1? 
-
-How will I: 
-
-- Keep track of what day the user is on, and what decks they should be studying? 
-- Would this be tracked in the backend? Or is it better to complete it on the frontend, and if so, how? 
-
-Solutions:  
-
-- Using localStorage might be an answer to tracking user progress, but perhaps not an altogether sound one... 
-
-- What were some unexpected obstacles? 
-
-The project is still getting off the ground, and the problems run into have been mostly mundane. Some fun challenges await me though! 
-
-- What tools are used to implement this project? 
-
-Most notably Material UI was used to build the frontend UI. Material UI is a design language developed by Google in 2014. 
-
-Material UI uses card motifs and grid-based layouts, and builds on them with responsive animations, transitions and other effects to give the page life. JSS is used on top of Material UI to override the styles given there. JSS is a CSS authoring tool that lets us *describe* CSS rules using JS. 
+3. What tools are used to implement this project? 
+This project is built with React, using Material UI to design and build the UI. Libraries like react-rewards, react-card-flip are being used to enhance micro-interactions, like flipping a card. 
 
