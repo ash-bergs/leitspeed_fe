@@ -10,7 +10,8 @@ import styles from '../../styles/DashboardStyles';
 
 function DecksView({ decks, classes }) {
     //* the props object will pass collection of links will be rendered - decks will most likely be the variable name will also carry the title? FormLabel
-    const [value, setValue] = useState(); 
+    // right now this is just set up so I could view the radio group correctly. Will need to think on how to use this state later. 
+    const [value] = useState(); 
     //! this value should be coming from the parent DASHBOARD, so we can update state at the top level
 
     //TODO changeHandler function to update `value` using setValue
