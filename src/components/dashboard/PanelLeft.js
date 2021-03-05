@@ -10,6 +10,7 @@
 // * Note - I was using the Container component from Material UI to render the buttons and decks. After reviewing the Material UI docs, it seems that the Box component is a better option
 /* -------------------------------------------------------------------------- */
 import React from 'react'; 
+import { Link } from 'react-router-dom'; 
 //* material UI components 
 import { Button, Box, Paper } from '@material-ui/core';
 //* material UI hooks
@@ -36,6 +37,14 @@ function PanelLeft({ decks, leitDecks, classes }) {
             </Box>
 
             {/*//TODO Add a "view pubic decks" button, but it's really more like a link. Using appropriate Material UI component */}
+            <Button 
+                className={classes.button} 
+                aria-label="View all public decks"
+                component={Link}
+                to="/view-all"
+                variant="contained"
+                color="primary"
+            >View Public Decks</Button>
 
         </Paper>
     ); 
