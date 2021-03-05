@@ -38,7 +38,6 @@ const styles = theme => ({
         // renders children in display: flex, and column direction
         display: "flex", 
         flexDirection: "column",
-        textAlign: "center",
     }, 
     studyButton: {
         margin: theme.spacing(1),
@@ -47,6 +46,7 @@ const styles = theme => ({
     }, 
     deckBox: {
         padding: theme.spacing(1),
+        margin: theme.spacing(2)
     },
 }); 
 
