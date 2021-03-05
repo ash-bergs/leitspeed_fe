@@ -11,14 +11,15 @@
 /* -------------------------------------------------------------------------- */
 import React from 'react'; 
 //* material UI components 
-import { Button, Box, Paper, Typography } from '@material-ui/core';
+import { Button, Box, Paper } from '@material-ui/core';
 //* material UI hooks
 import { withStyles } from '@material-ui/core/styles'; 
 
+import DecksView from './DecksView'; 
 import styles from '../../styles/DashboardStyles'; 
 
-function PanelLeft({ classes }) {
-
+function PanelLeft({ decks, leitDecks, classes }) {
+    // ? Should the value for the form selection (state) live here? We only want to respond to one at a time.. can we pass that same value prop to both forms? and when it's updated in EITHER it will update the Cards component?
     return (
         <Paper className={classes.panelPaper}>
             
@@ -30,16 +31,8 @@ function PanelLeft({ classes }) {
             <Box className={classes.panelLower}>
             {/* "contained" Buttons are 'high-emphasis', I want this for the study button, so it will stand out compared to the others */}
                 <Button className={classes.studyButton} variant="contained">Study</Button>
-                {/* I want to style this box, to appear slightly raised and have a shadow - Move the title outside of the box? */}
-                {/*//TODO This whole part of the panel (from Your Decks to the list of decks) can be a component used for both deck displays (all decks, leitner phase decks) */}
-                <Typography variant="h4">Your Decks</Typography>
-                <Box boxShadow={1} className={classes.deckBox}>
-                    <Typography variant="subtitle1"><span role="img" aria-label="bulletpoint-standin">⚫</span>Decks here</Typography>
-                    <Typography variant="subtitle1"><span role="img" aria-label="bulletpoint-standin">⚫</span>Design</Typography>
-                    <Typography variant="subtitle1"><span role="img" aria-label="bulletpoint-standin">⚫</span>Computer Science</Typography>
-                    <Typography variant="subtitle1"><span role="img" aria-label="bulletpoint-standin">⚫</span>History</Typography>
-                    {/*//TODO Make a radio button group component using Material UI FormControl components */}
-                </Box>
+                <DecksView decks={decks} />
+                <DecksView decks={leitDecks} />
             </Box>
 
             {/*//TODO Add a "view pubic decks" button, but it's really more like a link. Using appropriate Material UI component */}

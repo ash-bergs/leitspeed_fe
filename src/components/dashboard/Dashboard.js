@@ -23,7 +23,58 @@ import styles from '../../styles/DashboardStyles';
 // From Material UI: Container, Paper, Button, Typography 
 /* -------------------------------------------------------------------------- */
 
-//TODO The side panel should be abstracted into it's own component... I'm just realizing that. 
+
+// * Dummy data to be passed to the DecksView component - state will be held in Dashboard once the API is ready 
+const decks = [
+    {
+        id: 1,
+        name: "Computer Science", 
+        public: false
+    },
+    {
+        id: 2,
+        name: "American History", 
+        public: false
+    },
+    {
+        id: 3,
+        name: "Food Science", 
+        public: true
+    },
+    {
+        id: 4,
+        name: "CSS", 
+        public: true
+    },
+    {
+        id: 5,
+        name: "JavaScript", 
+        public: false
+    },
+]; 
+
+const leitDecks = [
+    {
+        id: 1, 
+        name: "Phase 1"
+    },
+    {
+        id: 2, 
+        name: "Phase 2"
+    },
+    {
+        id: 3, 
+        name: "Phase 3"
+    },
+    {
+        id: 4, 
+        name: "Phase 4"
+    },
+    {
+        id: 5, 
+        name: "Phase 5"
+    }, 
+]; 
 
 function Dashboard({ classes }) {
     // destructure `classes` in the args 
@@ -32,11 +83,14 @@ function Dashboard({ classes }) {
         // Container centers content horizontally 
         // bounded by the `maxWidth` property - large, medium, small. etc
         <Container className={classes.root} fixed>
-                
-            <PanelLeft />
+            
+            {/* Pass DECKS to PanelLeft, and finally to the DecksView child component */}
+            {/* Pass LEIT-DECKS to PanelLeft, and finally to the DecksView child component */}
+            <PanelLeft decks={decks} leitDecks={leitDecks} />
 
             {/* Paper component gives us something that feels like paper, flat, white, etc*/}
             <Paper className={classes.paper} elevation={2}>
+            {/* Will there be a ternary here to update different deck selections? if selectedDeck is null, then render Cards, otherwise render that decks cards.... Cards will probably need to be refactored to render dynamic sets */}
                 <Cards /> 
             </Paper>
 
@@ -45,20 +99,3 @@ function Dashboard({ classes }) {
 }
 
 export default withStyles(styles)(Dashboard);
-
-/* --------------------------------- Removed -------------------------------- */
-// <Paper className={classes.panelPaper}>
-//             <Container className={classes.panelUpper}>
-//             <Button className={classes.button} variant="outlined">Add Card</Button>
-//             <Button className={classes.button} variant="outlined">Add Deck</Button>
-//         </Container>
-//         <Container className={classes.panelLower}>
-//         {/* "contained" Buttons are 'high-emphasis', I want this for the study button, so it will stand out compared to the others */}
-//             <Button className={classes.studyButton} variant="contained">Study</Button>
-//             <Container style={{ "border": "1px solid red"}}>
-//                 <Typography variant="h4">Your Decks</Typography>
-//                 <Typography variant="body1">Decks will be listed here</Typography>
-//             </Container>
-//         </Container>
-//     </Paper>
-
