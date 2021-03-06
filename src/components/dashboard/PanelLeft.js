@@ -36,7 +36,6 @@ function PanelLeft({ decks, leitDecks, classes }) {
                 <DecksView decks={leitDecks} />
             </Box>
 
-            {/*//TODO Add a "view pubic decks" button, but it's really more like a link. Using appropriate Material UI component */}
             <Button 
                 className={classes.button} 
                 aria-label="View all public decks"

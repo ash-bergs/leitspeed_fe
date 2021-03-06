@@ -15,6 +15,9 @@ import FlashCard from './Card';
 //* I'll be adding React-Card-Flip to the project and trying it out... I don't know if it will work with Material UI though 🤔 
 // Whatever, we're trying it because it's the next logical step. Don't overthink this too much. Get a decent full stack project up. 
 
+//TODO: Component shift 
+// consider rendering the cards in a BOX component? This might be a more sound option than Paper. (Box is a div) - or use a React.Fragment
+
 function Cards(){
     const [cards] = useState(data); 
 
