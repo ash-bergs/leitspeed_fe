@@ -14,10 +14,9 @@ import styles from '../../styles/DashboardStyles';
 /* -------------------------------------------------------------------------- */
 /*                             About the Dashboard                            */
 // * Dashboard is a top-level component
-// ? I think this 👆 is the right way to refer to it? Not sure...
-// Because of that I should make it concerned with state, like cards, and actions on cards. 
+// It's concerned with state, like cards, and actions on cards, decks, etc.
 
-// From Material UI: Container, Paper, Button, Typography 
+// From Material UI: Container, Box 
 /* -------------------------------------------------------------------------- */
 
 //* ---------------------------- 📝 About MirageJS --------------------------- */
@@ -29,7 +28,7 @@ import styles from '../../styles/DashboardStyles';
 //* Begin Mirage mock API 
 let server = createServer(); 
 //* GET route - /cards - all cards 
-server.get("/api/cards", { cards: [
+server.get("/api/cards", { data: [
     {
         id: 1, 
         user_id: 1, 
@@ -80,6 +79,33 @@ server.get("/api/cards", { cards: [
         active: true, 
         public: true
     }
+]}); 
+server.get("/api/decks", { data: [
+    {
+        id: 1,
+        name: "Computer Science", 
+        public: false
+    },
+    {
+        id: 2,
+        name: "American History", 
+        public: false
+    },
+    {
+        id: 3,
+        name: "Food Science", 
+        public: true
+    },
+    {
+        id: 4,
+        name: "CSS", 
+        public: true
+    },
+    {
+        id: 5,
+        name: "JavaScript", 
+        public: false
+    },
 ]}); 
 
 // * Dummy data to be passed to the DecksView component - state will be held in Dashboard once the API is ready 
@@ -141,13 +167,14 @@ function Dashboard({ classes }) {
     // as normal, cards is init as an empty array 
     let [cards, setCards] = useState([]); 
     
+    //! 👁 See Note below 
     useEffect(() => {
         fetch("/api/cards")
             .then((res) => res.json())
             .then((json) => {
-                setCards(json.cards)
+                setCards(json.data)
             })
-    }, [])
+    }, []); 
     
     return (
         // Container centers content horizontally 
@@ -169,3 +196,31 @@ function Dashboard({ classes }) {
 }
 
 export default withStyles(styles)(Dashboard);
+
+//! 📝 Note 
+// branch: testing/mirage-setup
+// I'm currently trying to implement the MirageJS Server to mock an API in the front end 
+// The motivation for this move is to continue forward momentum on building the UI while the API is being finished. 
+// Currently, the architecture of the database is unclear, and being able to play with solution via Mirage will help me get a better idea of how to structure the API 
+// The API is also currently non-functional //TODO - get some help on this, perhaps ask Harrison to take a look 
+
+// ? Problem One: Making multiple fetch calls, and updating multiple slices of state simultaneously. 
+// I connected the CARDS state to the Mirage server, useEffect is currently updating the cards state on component mount 
+// But I also need to make a call for DECKS and LEITDECKS at the same time, ideally updating them together. 
+
+/*
+First I explored using PROMISE.ALL in the useEffect.
+I thought I could define an array of urls, the endpoints. Something like: 
+
+useEffect(() => {
+    const urls = ["/api/cards", "/api/decks", "/api/leitDecks"]; 
+    Promise.all(urls.map(url => fetch(url)))
+        .then(responses => Promise.all(responses.map(res => res.data))
+            .then(data => {
+                ! but here I lost the trail I was on... and I'm fairly certain I'm thinking of this chain of Promise objects incorrectly. 
+                ! I would need to loop through all the setter functions, and make sure they get the RIGHT data object....
+                ? this seems like a very verbose way of doing something that could be more easily accomplished by a React hook - maybe the useReducer hook?
+            }))
+        })
+    }, []); 
+*/
