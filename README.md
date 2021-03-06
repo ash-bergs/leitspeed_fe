@@ -12,6 +12,9 @@ This project is just getting off the ground. A backend API is being built in Nod
 
 ## Project Previews 
 
+Trello Card: [Card](https://trello.com/c/SOLMIQle)
+
+
 🚧 Under Construction 🚧
 
 User Flow 
