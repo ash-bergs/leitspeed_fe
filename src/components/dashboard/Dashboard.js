@@ -166,7 +166,6 @@ function Dashboard({ classes }) {
     // useEffect will make a fetch call - the Mirage server will intercept the call, and return the cards object defined in the route handler
     // as normal, cards is init as an empty array 
     let [cards, setCards] = useState([]); 
-    let [decks, setDecks] = useState([]); 
     
     //! 👁 See Note below 
     useEffect(() => {
