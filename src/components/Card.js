@@ -66,10 +66,12 @@ export default withStyles(styles)(FlashCard);
 /* --------------------------- Card Design Update --------------------------- */
 //* Now that the build has seen some progress, the shape of how things will fit together is starting to emerge. 
 //* 3/6/21 - Updating the cards to appear more like a flashcard - adding edit and delete button [for now these are non-functional]
-//TODO - add an Collapse MUI element to the back of the card - this will render "notes" from the card (if it has any)
+//TODO - add a Collapse MUI element to the back of the card - this will render "notes" from the card (if it has any)
 //TODO - media sizing - when on mobile the variant of the Typography component should be smaller. h4 is blocky and ugly on small screens. 
 
 //TODO - Answer the following...
 //? How to use pagination to show one card at a time
 //? How can a user flag a card they want to study more, or move one they no longer want to study? 
 //? How can I track the time a user spends studying a deck, and studying overall? Start by solving for tracking time overall. 
+
+//! We have a problem here - clicking the buttons causes the card to flip - we need a way to separate the functionality - edit and delete must not cause the react-card-flip function to trigger
