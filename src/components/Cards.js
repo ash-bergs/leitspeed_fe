@@ -1,8 +1,6 @@
 import React from 'react'; 
 import FlashCard from './Card'; 
 
-//TODO - this cards state needs to be lifted to Dashboard
-
 function Cards({ cards }){
 
     return(
