@@ -12,7 +12,7 @@ const styles = theme => ({
         margin: "0 auto", 
         display: "flex", 
     }, 
-    paper: {
+    box: {
         //margin: "1%",
         width: "100%",
     }, 
