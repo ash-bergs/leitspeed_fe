@@ -1,22 +1,11 @@
 import React, { useState } from 'react'; 
 
 import Paper from '@material-ui/core/Paper'; 
-
-//TODO - this state needs to be lifted 🔽
-// eventually it will be coming from my API 
-import data from '../resources/CardsData'; 
-
+//* consider making this just a react Frgament, rather than another div in the code 
 import FlashCard from './Card'; 
 
-//? What will I need from Material UI? 
-// Paper, for the main page 
-//? How will the cards be done? 
-// I've used a third party library in the past that might be useful here, especially for 'study mode' - not sure how I'll implement a game yet 
-//* I'll be adding React-Card-Flip to the project and trying it out... I don't know if it will work with Material UI though 🤔 
-// Whatever, we're trying it because it's the next logical step. Don't overthink this too much. Get a decent full stack project up. 
-
-//TODO: Component shift 
-// consider rendering the cards in a BOX component? This might be a more sound option than Paper. (Box is a div) - or use a React.Fragment
+//TODO - this cards state needs to be lifted to Dashboard
+import data from '../resources/CardsData'; 
 
 function Cards(){
     const [cards] = useState(data); 
@@ -35,11 +24,9 @@ export default Cards;
 /* -------------------------------------------------------------------------- */
 /*                                 About Cards                                */
 /* 
-    //Cards is a parent component, it will hold state, and actions concerned with it,
-    //and pass it to the Card child component 
-
-    * Update: Cards will *not* be concerned with state, it will only be rendered in the Dashboard. 
-    The Dashboard will be the "top level" component for Cards data 
-    The Cards component is now just concerned with displaying Card children
+    Parent: Dashboard
+    Direct Children: FlashCards
+    
+    Cards is a view Component that passes state to the child FlashCard component
 */
 /* -------------------------------------------------------------------------- */
