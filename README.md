@@ -52,6 +52,7 @@ The project currently uses this tech stack:
 - Material UI - The base of the styling is coming from the Material UI library. 
 - JSS - On top of Material UI, JSS styles the Material UI to our own custom settings (colors, etc.)
 - react-card-flip - an NPM package to provide the card flipping effect 
+- MirageJS - Mirage fakes a RESTful API for the sake of frontend development and testing 
 
 ## Installation & Setup
 

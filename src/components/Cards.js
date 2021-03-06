@@ -1,11 +1,9 @@
-import React, { useState } from 'react'; 
+import React from 'react'; 
 import FlashCard from './Card'; 
 
 //TODO - this cards state needs to be lifted to Dashboard
-import data from '../resources/CardsData'; 
 
-function Cards(){
-    const [cards] = useState(data); 
+function Cards({ cards }){
 
     return(
         <React.Fragment>
