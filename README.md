@@ -40,7 +40,7 @@ The PanelLeft component effectively serves as a user "tool bar." From this compo
 
 **Current Iteration:** 
 
-![Dashboard-current](https://i.ibb.co/FYtg7pN/dashboard-current.jpg)
+![Dashboard-current](https://i.ibb.co/2kY9jwG/leitspeed.jpg)
 
 ----
 
