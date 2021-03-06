@@ -1,7 +1,8 @@
 const styles = theme => ({
     // root describes parent Card
     root: {
-        boxShadow: "5px 5px 5px lightgrey"
+        boxShadow: "5px 5px 5px lightgrey", 
+        margin: theme.spacing(4)
     }, 
     // styles for the colored header on the Card component 
     // I'd like to make this dynamic at some point, with decks getting different colors 

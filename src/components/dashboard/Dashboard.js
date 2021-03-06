@@ -1,7 +1,7 @@
 import React from 'react'; 
 
 //* material UI components 
-import { Container, Paper} from '@material-ui/core';
+import { Container, Box} from '@material-ui/core';
 //* material UI hooks
 import { withStyles } from '@material-ui/core/styles'; 
 
@@ -9,15 +9,12 @@ import Cards from '../Cards';
 import PanelLeft from './PanelLeft'; 
 import styles from '../../styles/DashboardStyles'; 
 //TODO - A component to render "rewards" - kind of like a shelf. This will go directly under the Nav bar. 
-//TODO - A component that renders user's individual decks 
-//TODO - A component that renders user's individual leit-decks 
 // 👆 These could use the same base component, with different state passed in. 
-
+//TODO - Give the PanelLeft component "sticky" positioning - let the Panel follow the user when they scroll
 /* -------------------------------------------------------------------------- */
 /*                             About the Dashboard                            */
 // * Dashboard is a top-level component
 // ? I think this 👆 is the right way to refer to it? Not sure...
-// It will render several child components, it is a TOP LEVEL component...
 // Because of that I should make it concerned with state, like cards, and actions on cards. 
 
 // From Material UI: Container, Paper, Button, Typography 
@@ -77,7 +74,7 @@ const leitDecks = [
 ]; 
 
 function Dashboard({ classes }) {
-    // destructure `classes` in the args 
+    // destructure `classes` in the args - connect styles and component by wrapping with withStyles in the export 
     // ? does this object come to use from Material UI?
     return (
         // Container centers content horizontally 
@@ -89,10 +86,10 @@ function Dashboard({ classes }) {
             <PanelLeft decks={decks} leitDecks={leitDecks} />
 
             {/* Paper component gives us something that feels like paper, flat, white, etc*/}
-            <Paper className={classes.paper} elevation={2}>
+            <Box className={classes.box}>
             {/* Will there be a ternary here to update different deck selections? if selectedDeck is null, then render Cards, otherwise render that decks cards.... Cards will probably need to be refactored to render dynamic sets */}
                 <Cards /> 
-            </Paper>
+            </Box>
 
         </Container>
     )
