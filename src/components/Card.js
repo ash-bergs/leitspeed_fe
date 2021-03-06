@@ -28,6 +28,7 @@ const FlashCard = ({ card, classes }) => {
     //* isFlipped is connected to the ReactCardFlip component - the parents of two separate containing divs - the front and the back.
     //* front and back of each each is its own Card component - the sides have slightly different functionality
     //* each "face" of the card is connected to the flipCard handler fn
+    //! It may be best to add a "flip" button, rather than making the whole card clickable? Otherwise features like definitions can't really be used (without flipping the card)
     return (
         <React.Fragment>
         

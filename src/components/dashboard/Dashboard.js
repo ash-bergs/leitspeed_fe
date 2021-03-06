@@ -1,16 +1,16 @@
-import React from 'react'; 
+import React, { useEffect, useState } from 'react'; 
+import { createServer } from 'miragejs'; 
 
 //* material UI components 
 import { Container, Box} from '@material-ui/core';
 //* material UI hooks
 import { withStyles } from '@material-ui/core/styles'; 
 
+//* dev built components 
 import Cards from '../Cards'; 
 import PanelLeft from './PanelLeft'; 
 import styles from '../../styles/DashboardStyles'; 
-//TODO - A component to render "rewards" - kind of like a shelf. This will go directly under the Nav bar. 
-// 👆 These could use the same base component, with different state passed in. 
-//TODO - Give the PanelLeft component "sticky" positioning - let the Panel follow the user when they scroll
+
 /* -------------------------------------------------------------------------- */
 /*                             About the Dashboard                            */
 // * Dashboard is a top-level component
@@ -20,8 +20,70 @@ import styles from '../../styles/DashboardStyles';
 // From Material UI: Container, Paper, Button, Typography 
 /* -------------------------------------------------------------------------- */
 
+//* ---------------------------- 📝 About MirageJS --------------------------- */
+// MirageJS is a library to mock an API in a front end build. I'm using it here so I can start putting things together in this app while I build the API. And because I think it would be a good bit of knowledge to have in my back pocket. 
+// Installed as a DEVDEPENENCY 
+// The Mirage server is set up in this file, the Dashboard, because this will be the component making these calls anyway
+// I might abstract it to its own directly in the future. 
+
+//* Begin Mirage mock API 
+let server = createServer(); 
+//* GET route - /cards - all cards 
+server.get("/api/cards", { cards: [
+    {
+        id: 1, 
+        user_id: 1, 
+        subject_id: 1, 
+        card_front: "What does enumerate do?", 
+        card_back: " Enumerate adds a counter to an iterable, and returns it in the form of an enumerate object. The object can be used directly in for loops, or converted into a list of tuples (using the list() method).", 
+        card_notes: ["Python method", "Programming"], 
+        active: true, 
+        public: true
+    }, 
+    {
+        id: 2, 
+        user_id: 1, 
+        subject_id: 1, 
+        card_front: "What are keyword arguments?", 
+        card_back: "Keyword arguments are named - meaning that their position does not matter but their name does", 
+        card_notes: ["Programming"], 
+        active: true, 
+        public: true
+    }, 
+    {
+        id: 3, 
+        user_id: 1, 
+        subject_id: 1, 
+        card_front: "What are positional arguments?", 
+        card_back: "Positional arguments can be named anything (banana words), but their position is important!", 
+        card_notes: ["Programming"], 
+        active: true, 
+        public: true
+    }, 
+    {
+        id: 4, 
+        user_id: 1, 
+        subject_id: 2, 
+        card_front: "Name a feature that makes objects such a widely used data structure", 
+        card_back: "Flexible storage. Intuitive storage (key-value pairs). Fast lookup time!", 
+        card_notes: ["Programming", "Think about Big O for this answer"], 
+        active: true, 
+        public: true
+    }, 
+    {
+        id: 5, 
+        user_id: 2, 
+        subject_id: 3, 
+        card_front: "What makes purple cauliflower purple?", 
+        card_back: "A surplus of anthocyanin! This antioxidant also gives red wine and grapes their coloring", 
+        card_notes: ["Antioxidants", "Purple foods!"], 
+        active: true, 
+        public: true
+    }
+]}); 
 
 // * Dummy data to be passed to the DecksView component - state will be held in Dashboard once the API is ready 
+//TODO Replace all this below with the Mirage server! 
 const decks = [
     {
         id: 1,
@@ -74,8 +136,19 @@ const leitDecks = [
 ]; 
 
 function Dashboard({ classes }) {
-    // destructure `classes` in the args - connect styles and component by wrapping with withStyles in the export 
-    // ? does this object come to use from Material UI?
+    // useState to create a slice of state for CARDS 
+    // useEffect will make a fetch call - the Mirage server will intercept the call, and return the cards object defined in the route handler
+    // as normal, cards is init as an empty array 
+    let [cards, setCards] = useState([]); 
+    
+    useEffect(() => {
+        fetch("/api/cards")
+            .then((res) => res.json())
+            .then((json) => {
+                setCards(json.cards)
+            })
+    }, [])
+    
     return (
         // Container centers content horizontally 
         // bounded by the `maxWidth` property - large, medium, small. etc
@@ -88,7 +161,7 @@ function Dashboard({ classes }) {
             {/* Paper component gives us something that feels like paper, flat, white, etc*/}
             <Box className={classes.box}>
             {/* Will there be a ternary here to update different deck selections? if selectedDeck is null, then render Cards, otherwise render that decks cards.... Cards will probably need to be refactored to render dynamic sets */}
-                <Cards /> 
+                <Cards cards={cards} /> 
             </Box>
 
         </Container>
@@ -96,8 +169,3 @@ function Dashboard({ classes }) {
 }
 
 export default withStyles(styles)(Dashboard);
-
-//TODO Dashboard: 
-// ! There's a problem with the Dashboard: 
-// When a card is flipped the parent container shifts and collapses to fit the differently sized text elements? I'm not quite sure why it's doing that. 
-// I need to find a way to make sure the Paper component rendering the Cards component won't shift when a card is flipped. 
