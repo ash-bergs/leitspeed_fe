@@ -99,3 +99,8 @@ function Dashboard({ classes }) {
 }
 
 export default withStyles(styles)(Dashboard);
+
+//TODO Dashboard: 
+// ! There's a problem with the Dashboard: 
+// When a card is flipped the parent container shifts and collapses to fit the differently sized text elements? I'm not quite sure why it's doing that. 
+// I need to find a way to make sure the Paper component rendering the Cards component won't shift when a card is flipped. 

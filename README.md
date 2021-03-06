@@ -20,15 +20,27 @@ User Flow
 
 ----
 
-### **Component: Dashboard** 
+### User Stories
 
-*Child Components: Cards (Card), DecksView (renders both total decks and the links to Leit-Decks?), Buttons - Add Card, Add Deck, Study Mode, View All Decks*
+#### **User Story: As a user... I want to see a Dashboard that shows all decks and leit-decks for review** 
 
-The Dashboard component is the parent-level component for several important features - including the Cards, Add Card/Deck forms, Edit Card forms, and so on. 
+*Status: Developing* 
 
-It will be concerned with state, and pass it to its child components (namely Cards, Card, and handling comm. w/ the API)
+*Components: Dashboard (top-level), -> Cards ( -> Card), PanelLeft ( -> DecksView), Utility Buttons - Add Card, Add Deck, Study Mode, View All Decks*
+
+A Dashboard component has been designed that displays two views. The left-hand view renders a user utility panel (PanelLeft), and the right-hand view renders the user's cards (Cards). 
+
+Dashboard is a top-level component, i.e. it's where state will be located. At the moment the API is not ready for use, so dummy data was created to stand-in for the real-world data. It is being passed from Dashboard to components it's concerned with. 
+
+The PanelLeft component effectively serves as a user "tool bar." From this component they can add a card, add a deck, enter study mode [non-functional], select one of their own decks to view [non-functional], and finally, navigate to all public decks [non-functional]. 
+
+**Concept:** 
 
 ![Dashboard-wireframe](https://i.ibb.co/qj19GLz/Contact.png)
+
+**Current Iteration:** 
+
+![Dashboard-current](https://i.ibb.co/FYtg7pN/dashboard-current.jpg)
 
 ----
 
