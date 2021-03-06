@@ -1,48 +1,72 @@
 import React, { useState } from 'react'; 
-import ReactCardFlip from 'react-card-flip'; 
+//*material UI hook wraps component with styles (CardStyles.js)
 import { withStyles } from '@material-ui/core/styles'; 
-
-import { Card, CardContent } from '@material-ui/core'; 
-import { Typography } from '@material-ui/core'; 
-
 import styles from '../styles/CardStyles'; 
 
+import ReactCardFlip from 'react-card-flip'; 
+//* material UI components 
+import { 
+    Avatar, 
+    Button, 
+    Card, 
+    CardActions, 
+    CardContent, 
+    CardHeader, 
+    Typography 
+} from '@material-ui/core'; 
+
+
 const FlashCard = ({ card, classes }) => {
-    // isFlipped controls the react-card-flip status 
-    // False on start 
+    // isFlipped state controls the react-card-flip component, false on start 
     const [isFlipped, setIsFlipped] = useState(false); 
 
-    // Now we need a function (a click handler) to update isFlipped state 
+    // click handler - toggles the isFlipped state, flipping the card to reveal the text on the back
     const flipCard = (event) => {
         event.preventDefault(); 
         setIsFlipped(!isFlipped); 
     }
-
-    // Now we must connect the ReactFlipCard component to the isFlipped State, so that it will know at any time what the state value is 
-    // flipDirection is a react-flip-card library property that specifies how the card flips
+    //* isFlipped is connected to the ReactCardFlip component - the parents of two separate containing divs - the front and the back.
+    //* front and back of each each is its own Card component - the sides have slightly different functionality
+    //* each "face" of the card is connected to the flipCard handler fn
     return (
-        <Card className={classes.root}>
+        <React.Fragment>
+        
             <ReactCardFlip isFlipped={isFlipped} flipDirection="vertical">
-                {/* 2 main DIVS will go inside the parent ReactCardFlip component - they are the front and back respectively */}
-                {/*//* can I use MATERIAL UI with this library? Try replacing divs in a moment, perhaps it can be 2 child elements*/}
-                <CardContent onClick={flipCard}>
-                        <Typography variant="h4" component="p">{card.card_front}</Typography>
-                </CardContent>
+                <Card onClick={flipCard} className={classes.root} variant="outlined">
+                    <CardHeader
+                        avatar={<Avatar className={classes.small} aria-label="subject">CSS</Avatar>}
+                        className={classes.header}
+                        title="Deck Subject Here"
+                    />
+                    <CardContent className={classes.content}>
+                        <Typography className={classes.text} variant="h4">{card.card_front}</Typography>
+                    </CardContent>
+                    <CardActions>
+                        <Button size="small" variant="outlined" color="secondary">Delete</Button>
+                        <Button size="small" variant="outlined">Edit</Button>
+                    </CardActions>
+                </Card>
 
-                <CardContent onClick={flipCard}>
-                        <Typography variant="h5" component="p">{card.card_back}</Typography>
-                </CardContent>
+                <Card onClick={flipCard}>
+                    <CardContent className={classes.content}>
+                        <Typography className={classes.text} variant="h4">{card.card_back}</Typography>
+                    </CardContent>
+                    <CardActions>
+                        <Button size="small" variant="outlined">Edit</Button>
+                    </CardActions>
+                </Card>
             </ReactCardFlip>
-        </Card>
+
+        </React.Fragment>
     ); 
 }
 
 export default withStyles(styles)(FlashCard); 
 
-// ! Problem - when the cards are flipped (clicked) they change width, and cause their parent to collapse - it's an ugly flick in the UI 
-// I think this is happening because each side of the cards are displaying differently sized text elements. 
-// ? I wonder if I can add the `fixed` flag to the Card component (from Material UI) above to prevent the resizing 
-// ? Or if I need to make the content on each side the same size... adjust for the card size and content area... or other fixes I could apply 
+/* --------------------------- Card Design Update --------------------------- */
+//* Now that the build has seen some progress, the shape of how things will fit together is starting to emerge. 
+//* 3/6/21 - Updating the cards to appear more like a flashcard - adding edit and delete button [for now these are non-functional]
+//TODO - add an Collapse MUI element to the back of the card - this will render "notes" from the card (if it has any)
 
 //TODO - Answer the following...
 //? How to use pagination to show one card at a time
