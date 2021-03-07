@@ -29,7 +29,8 @@ const styles = theme => ({
         color: "white"
     }, 
     title: {
-        // Below "sm" the title will not show at all
+        //TODO Below "sm" the title will not show at all
+        fontFamily: "'Oswald', sans-serif", 
         color: "white",
         display: "none", 
         [theme.breakpoints.up("sm")] : {

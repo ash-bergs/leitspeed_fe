@@ -1,64 +1,38 @@
 import React from 'react'; 
 import { Link } from 'react-router-dom'; 
+//* material ui components 
+import { CssBaseline, Box, Typography, Button } from '@material-ui/core';
+// * material ui hooks
+import { withStyles } from '@material-ui/core/styles'; 
+import styles from '../styles/LandingStyles'; 
 
-// Container centers itself(not its inner content) horizontally 
-// Can be nested but not necessary
-import { Container, Typography, Button } from '@material-ui/core';
-import { makeStyles } from '@material-ui/core/styles'; 
-import { fade } from '@material-ui/core/styles/colorManipulator'; 
-
-
-const useStyles = makeStyles((theme) => ({
-    container: {
-        display: "flex", 
-        flexDirection: "column",
-        justifyContent: "center",
-        textAlign: "center",
-        height: "50vh", 
-        backgroundImage: "url('https://images.unsplash.com/photo-1515508268448-8d0d292bc49a?ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=1050&q=80')",
-        backgroundSize: "cover"
-    }, 
-    title: {
-        color: theme.palette.primary.dark, 
-        fontWeight: 500,
-        letterSpacing: '0.5px'
-    }, 
-    button: {
-        width: "20%", 
-        margin: "0 auto", 
-        marginTop: "5%",
-        backgroundColor: fade(theme.palette.secondary.main, 0.85),
-        color: 'white',
-        transition: 'all 1s',
-        '&:hover': {
-            backgroundColor: theme.palette.secondary.main
-            //TODO move up y axis & give box shadow
-        }
-    }
-})); 
-//TODO 👆 I should abstract this to a style file with FormStyles and NavbarStyles - perhaps HeroStyles 
-// Wrap using withStyles
-
-function Hero() {
-    // classes is the object built above ^ JS describing CSS rules
-    // useStyles hook can only be used with function components 
-    const classes = useStyles(); 
+function Hero({ classes }) {
 
     return(
-        <Container maxWidth="lg" className={classes.container}>
-            <Typography variant="h1" className={classes.title}>
-                Learn at Leitspeed
-            </Typography>
-            <Typography variant="h5">Remember almost anything, forever!</Typography>
-            <Button 
-                className={classes.button} 
+        <Box className={classes.root}>
+        {/* //? CssBaseline does... what? It removes the border and padding - affects the box-model? */}
+            <CssBaseline />
+            <Typography className={classes.title}>LeitSpeed</Typography>
+            <Typography className={classes.subtitle}>Study more effectively and forget less</Typography>
+            <Button className={classes.button} 
                 aria-label="register as a new user"
                 component={Link}
-                to="/login"
-            >Login</Button>
-        </Container>
+                to="/login"    
+            >Register</Button>
+        </Box>
     ); 
 }
 
-export default Hero; 
+export default withStyles(styles)(Hero); 
 
+/* ----------------------------- Hero re-degisn ----------------------------- */
+// The hero section was hastily and sloppily done before - I spent some time wireframing some ideas & learning more about the MUI library 
+// There was too much element nesting going on before, and an overly complicated approach to structuring such a simplistic part of the page 
+// ! Wireframes can be seen at: https://trello.com/c/1ky1rTXR 
+
+// New flow: 
+// * 1 parent element - the MUI Box component, a generic and cutomizable div
+// * Child elements: 2 Typography components, 1 Button component 
+// * State: None 
+
+// Will be rendering in a parent component Landing.js, with another paginated component with more information below
