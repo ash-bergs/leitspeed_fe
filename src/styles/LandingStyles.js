@@ -4,11 +4,12 @@ const styles = theme => ({
         flexDirection: "column",
         justifyContent: "center",
         textAlign: "center",
-        height: "100vh", 
+        height: "50vh", 
         backgroundImage: `url(${process.env.PUBLIC_URL +  "/assets/rubixWhite-bg.jpg"})`,
         backgroundSize: "cover",
         backgroundPosition: "bottom", 
         backgroundRepeat: "no-repeat", 
+        borderBottom: `2px solid ${theme.palette.primary.dark}`
     }, 
     title: {
         fontFamily: "'Oswald', sans-serif", 
