@@ -36,8 +36,6 @@ Trello Board: [Link to trello board](https://trello.com/b/bHMZYP3n/leitspeed)
 
 *Status: Developing* 
 
-*Project finish: 2 days (3/7/2021)* 
-
 **Wireframes:** 
 
 - See trello card: [User Story: Dashboard](https://trello.com/c/1ky1rTXR)

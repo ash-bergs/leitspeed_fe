@@ -1,17 +1,15 @@
 import React from 'react'; 
 import { Link } from 'react-router-dom'; 
 //* material ui components 
-import { CssBaseline, Box, Typography, Button } from '@material-ui/core';
+import { Box, Typography, Button } from '@material-ui/core';
 // * material ui hooks
 import { withStyles } from '@material-ui/core/styles'; 
-import styles from '../styles/LandingStyles'; 
+import styles from '../../styles/LandingStyles'; 
 
 function Hero({ classes }) {
 
     return(
-        <Box className={classes.root}>
-        {/* //? CssBaseline does... what? It removes the border and padding - affects the box-model? */}
-            <CssBaseline />
+        <Box className={classes.root}>        
             <Typography className={classes.title}>LeitSpeed</Typography>
             <Typography className={classes.subtitle}>Study more effectively and forget less</Typography>
             <Button className={classes.button} 

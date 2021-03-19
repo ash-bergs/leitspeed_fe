@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from 'react'; 
 import { createServer } from 'miragejs'; 
+import axios from 'axios'; 
 
 //* material UI components 
 import { Container, Box} from '@material-ui/core';
@@ -80,6 +81,7 @@ server.get("/api/cards", { data: [
         public: true
     }
 ]}); 
+//* GET route - /decks - all decks
 server.get("/api/decks", { data: [
     {
         id: 1,
@@ -108,36 +110,7 @@ server.get("/api/decks", { data: [
     },
 ]}); 
 
-// * Dummy data to be passed to the DecksView component - state will be held in Dashboard once the API is ready 
-//TODO Replace all this below with the Mirage server! 
-const decks = [
-    {
-        id: 1,
-        name: "Computer Science", 
-        public: false
-    },
-    {
-        id: 2,
-        name: "American History", 
-        public: false
-    },
-    {
-        id: 3,
-        name: "Food Science", 
-        public: true
-    },
-    {
-        id: 4,
-        name: "CSS", 
-        public: true
-    },
-    {
-        id: 5,
-        name: "JavaScript", 
-        public: false
-    },
-]; 
-
+//* Dummy data (leitDecks)
 const leitDecks = [
     {
         id: 1, 
@@ -161,13 +134,32 @@ const leitDecks = [
     }, 
 ]; 
 
+// * classes refers to MUI style overrides - style classes 
 function Dashboard({ classes }) {
     // useState to create a slice of state for CARDS 
     // useEffect will make a fetch call - the Mirage server will intercept the call, and return the cards object defined in the route handler
     // as normal, cards is init as an empty array 
-    let [cards, setCards] = useState([]); 
+    const [cards, setCards] = useState([]); 
+    const [userData, setUserData] = useState([]); 
+
     
-    //! 👁 See Note below 
+    //TODO Implement one state update, to avoid out-of-sync behavior 
+    // Using some logic I found on stackOverflow, I'm going to try using a self-invoking function to set the initial state 
+    // the data needed on render is all related to one thing - the user. 
+    // we need CARDS and DECKS right now - we'll worry about LeitDecks later 
+    useEffect(() => {
+        (async () => {
+            const data1 = await axios.get("/api/cards");
+            const data2 = await axios.get("/api/decks");
+            setUserData({ cards: data1.data, decks: data2.data }); 
+            // ? now I have the two chunks of data the page needs.. but how do I best deal it out and update it?
+        })()
+    }, []);
+
+    console.log("userData", userData); 
+    console.log("cards", cards)
+
+    // ! This is what I was doing originally and want to replace with one useEffect and state update. 
     useEffect(() => {
         fetch("/api/cards")
             .then((res) => res.json())
@@ -183,7 +175,7 @@ function Dashboard({ classes }) {
             
             {/* Pass DECKS to PanelLeft, and finally to the DecksView child component */}
             {/* Pass LEIT-DECKS to PanelLeft, and finally to the DecksView child component */}
-            <PanelLeft decks={decks} leitDecks={leitDecks} />
+            <PanelLeft decks={leitDecks} leitDecks={leitDecks} />
 
             {/* Paper component gives us something that feels like paper, flat, white, etc*/}
             <Box className={classes.box}>
