@@ -1,8 +1,13 @@
 const styles = theme => ({
-    root: {
+    sectionOne: {
         display: "flex",
-        backgroundColor: theme.palette.primary.main
+        backgroundColor: theme.palette.primary.main,
     }, 
+    sectionTwo: {
+        display: "flex",
+        backgroundColor: "#90caf9", 
+        borderBottom: `2px solid ${theme.palette.primary.dark}`
+    },
     textBox: {
         width: "50%",
         padding: "0 5%",
