@@ -2,11 +2,21 @@ const styles = theme => ({
     sectionOne: {
         display: "flex",
         backgroundColor: theme.palette.primary.main,
+        [theme.breakpoints.down("sm")] : {
+            // using the theme 
+            // the styles written here will apply to the small breakpoint and UP
+            flexDirection: "column"
+        }
     }, 
     sectionTwo: {
         display: "flex",
         backgroundColor: "#90caf9", 
-        borderBottom: `2px solid ${theme.palette.primary.dark}`
+        borderBottom: `2px solid ${theme.palette.primary.dark}`,
+        [theme.breakpoints.down("sm")] : {
+            // using the theme 
+            // the styles written here will apply to the small breakpoint and UP
+            flexDirection: "column"
+        }
     },
     textBox: {
         width: "50%",
@@ -14,27 +24,51 @@ const styles = theme => ({
         display: "flex", 
         flexDirection: "column", 
         justifyContent: "center", 
-        color: "white"
+        color: "white",
+        [theme.breakpoints.down("sm")] : {
+            // using the theme 
+            // the styles written here will apply to the small breakpoint and UP
+            width: "100%", 
+            order: 1, 
+            textAlign: "center"
+        }
     }, 
     subtitle: {
         fontFamily: "'Oswald', sans-serif",
-        fontSize: "6.0rem", 
+        fontSize: "4.0rem", 
+        letterSpacing: "-.02rem",
+        [theme.breakpoints.down("sm")] : {
+            // using the theme 
+            // the styles written here will apply to the small breakpoint and UP
+            fontSize: "3.0rem", 
+        }
     },
     bodyText: {
         fontFamily: "'Roboto', sans-serif",
         fontSize: "1.3rem", 
-        letterSpacing: ".12rem"
+        letterSpacing: ".10rem", 
+        [theme.breakpoints.down("sm")] : {
+            // using the theme 
+            // the styles written here will apply to the small breakpoint and UP
+            fontSize: "1.1rem", 
+        }
     },
     imgBox: {
         height: "80vh",
         width: "50%", 
         display: "flex",
         justifyContent: "center", 
-        alignItems: "center"
+        alignItems: "center",
+        [theme.breakpoints.down("sm")] : {
+            // using the theme 
+            // the styles written here will apply to the small breakpoint and UP
+            width: "100%", 
+            margin: "0 auto",
+            order: 2
+        }
     }, 
-    image: {
-        borderRadius: ".5rem", 
-        height: "80%", 
+    image: { 
+        width: "80%",
     }
 }); 
 
