@@ -5,7 +5,6 @@
  */
 /* -------------------------------------------------------------------------- */
 import React from 'react'; 
-import { CssBaseline } from '@material-ui/core';
 
 import Hero from './Hero'; 
 import HeroDetails from './HeroDetails'; 
@@ -13,7 +12,6 @@ import HeroDetails from './HeroDetails';
 function Landing() {
     return (
         <React.Fragment>
-            <CssBaseline />
                 <Hero /> 
                 <HeroDetails /> 
         </React.Fragment>
