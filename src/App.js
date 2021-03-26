@@ -18,16 +18,16 @@ function App() {
   return (
     <ThemeProvider>
       <PageContent>
-      <Nav />
-      <CssBaseline />
-        <Router>
-          <Route exact path="/" component={Landing} />
-          <Route path="/login" component={LoginView} /> 
-          <Route path="/dashboard" component={Dashboard} /> 
-          {/* Path to / is a welcome header, logo, etc that kind of thing - renders sign up form */}
-          {/* Route to dashboard, protected - Renders Cards, Study lists?, Study game */}
-          {/* Add/Edit Form - use one form to complete both tasks?? */}
-        </Router>
+        <Nav />
+        <CssBaseline />
+          <Router>
+            <Route exact path="/" component={Landing} />
+            <Route path="/login" component={LoginView} /> 
+            <Route path="/dashboard" component={Dashboard} /> 
+            {/* Path to / is a welcome header, logo, etc that kind of thing - renders sign up form */}
+            {/* Route to dashboard, protected - Renders Cards, Study lists?, Study game */}
+            {/* Add/Edit Form - use one form to complete both tasks?? */}
+          </Router>
       </PageContent>
     </ThemeProvider>
   );

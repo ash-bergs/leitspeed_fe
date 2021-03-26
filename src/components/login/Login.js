@@ -1,15 +1,15 @@
-import React from 'react'; 
+import React, { useContext } from 'react'; 
 
 import { Checkbox, FormControl, FormControlLabel, Input, InputLabel } from '@material-ui/core'; 
 import Button from '@material-ui/core/Button'; 
-// Instead of the USESTYLES hook that I used in other components, I'm using the WITHSTYLES hook in this component 
 import { withStyles } from '@material-ui/core/styles'; 
-// First import the hook
 import styles from '../../styles/FormStyles'; 
-// then import the defined styles to pass into the hook
+import { ThemeContext } from '../../contexts/ThemeContext'; 
 
 
-function Login({ classes }) {
+function Login(props) {
+    const { isDarkMode } = useContext(ThemeContext); 
+    const { classes } = props; 
 
     return(
         <React.Fragment>
@@ -31,7 +31,7 @@ function Login({ classes }) {
                 <Button className={classes.submit}
                     variant="contained" 
                     type="submit" 
-                    color="primary"
+                    color={isDarkMode ? "default" : "primary"}
                     fullWidth > Submit </Button>
             </form>
         </React.Fragment>

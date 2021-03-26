@@ -13,21 +13,21 @@ function Nav(props) {
     // bringing in the two values from the custom hook, provided by the ThemeContext, consuming them in the nav with useContext hook 
     const { isDarkMode, toggleTheme } = useContext(ThemeContext); 
     const { classes } = props; 
-
+    
     return(
         <div className={classes.root}>
             <AppBar position="static" color={isDarkMode ? "default" : "primary"}>
                 <Toolbar>
                 <IconButton className={classes.hidden}>
-                    <a href="/" className={classes.homeLink}>Leitspeed</a>
+                    <a href="/" className={isDarkMode ? classes.homeLinkDark : classes.homeLink}>LeitStudy</a>
                 </IconButton>
-                <IconButton color="secondary" >
-                    <a href="/login" className={classes.loginLink}>login</a>
+                <IconButton >
+                    <a href="/login" className={isDarkMode? classes.loginLinkDark : classes.loginLink}>login</a>
                 </IconButton>
                 <Switch onChange={toggleTheme} />
                 {/* searchbar is all 3 following divs */}
                 <div className={classes.grow} />
-                    <div className={classes.search}>
+                    <div className={isDarkMode ? classes.searchDark : classes.search}>
                         <div className={classes.searchIcon}>
                             <SearchIcon />
                         </div>

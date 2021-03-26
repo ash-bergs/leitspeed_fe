@@ -1,22 +1,19 @@
-import React from 'react'; 
-import { Link } from 'react-router-dom'; 
+import React from 'react';
+// hero section background image 
+import background from '.././../resources/images/blackboardBgOptimized.jpg'; 
 //* material ui components 
-import { Box, Typography, Button } from '@material-ui/core';
+import { Box, Typography } from '@material-ui/core';
 // * material ui hooks
 import { withStyles } from '@material-ui/core/styles'; 
 import styles from '../../styles/LandingStyles'; 
 
 function Hero({ classes }) {
 
+    // used the result of a string interpolation expression to set the background... using the public folder took too long
     return(
-        <Box className={classes.root}>        
-            <Typography className={classes.title}>LeitSpeed</Typography>
-            <Typography className={classes.subtitle}>Study more effectively and forget less</Typography>
-            <Button className={classes.button} 
-                aria-label="register as a new user"
-                component={Link}
-                to="/login"    
-            >Register</Button>
+        <Box className={classes.root} style={{ backgroundImage: `url(${background})`}}>        
+            <Typography className={classes.title}>LeitStudy</Typography>
+            <Typography className={classes.subtitle}>Stop cramming. Start learning.</Typography>
         </Box>
     ); 
 }
@@ -31,6 +28,5 @@ export default withStyles(styles)(Hero);
 // New flow: 
 // * 1 parent element - the MUI Box component, a generic and cutomizable div
 // * Child elements: 2 Typography components, 1 Button component 
+//! 3.26 - I removed the register button from this little hero section. I don't know where to put it right this minute, and I still need to build a proper register form. 😅
 // * State: None 
-
-// Will be rendering in a parent component Landing.js, with another paginated component with more information below
