@@ -18,27 +18,44 @@ const styles = theme => ({
     root: {
         width: "100%",
         marginBottom: 0, 
-        backgroundColor: theme.palette.warning.light
     }, 
     grow: {
         flexGrow: 1
     }, 
-    menuButton: {
-        marginLeft: -12, 
-        marginRight: 20, 
-        color: "white"
-    }, 
-    title: {
-        //TODO Below "sm" the title will not show at all
-        fontFamily: "'Oswald', sans-serif", 
-        color: "white",
-        display: "none", 
-        [theme.breakpoints.up("sm")] : {
-            // using the theme 
-            // the styles written here will apply to the small breakpoint and UP
-            display: "block"
+    hidden: {
+        [theme.breakpoints.down("sm")] : {
+                display: "none"
         }
+    },
+    homeLink: {
+        //marginLeft: -12, 
+        //marginRight: 20, 
+        color: "white", 
+        textDecoration: "none", 
+        fontFamily: "'Oswald', sans-serif", 
+        fontSize: "2.0rem",
     }, 
+    loginLink: {
+        border: "2.0px solid white", 
+        paddingBottom: ".10%",
+        padding: "0 10%",
+        borderRadius: ".2rem",
+        color: "white", 
+        textDecoration: "none", 
+        //fontFamily: "'Roboto', sans-serif", 
+        fontSize: "1.3rem"
+    },
+    // title: {
+    //     //TODO Below "sm" the title will not show at all
+    //     fontFamily: "'Oswald', sans-serif", 
+    //     color: "white",
+    //     display: "none", 
+    //     [theme.breakpoints.up("sm")] : {
+    //         // using the theme 
+    //         // the styles written here will apply to the small breakpoint and UP
+    //         display: "block"
+    //     }
+    //}, 
     search: {
         position: "relative", 
         // using Material UI styles👇
