@@ -4,21 +4,24 @@ const styles = theme => ({
         flexDirection: "column",
         justifyContent: "center",
         textAlign: "center",
-        height: "50vh", 
-        backgroundImage: `url(${process.env.PUBLIC_URL +  "/assets/rubixWhite-bg.jpg"})`,
+        height: "60vh", 
         backgroundSize: "cover",
         backgroundPosition: "bottom", 
         backgroundRepeat: "no-repeat", 
         borderBottom: `2px solid ${theme.palette.primary.dark}`
     }, 
     title: {
+        color: "white",
         fontFamily: "'Oswald', sans-serif", 
         fontSize: "8.0rem",
         letterSpacing: '2.6px', 
     }, 
     subtitle: {
-        fontFamily: "'Oswald', sans-serif", 
-        fontSize: "3.0rem"
+        color: "white",
+        fontFamily: "'Lato', sans-serif", 
+        fontWeight: "400", 
+        fontSize: "2.0rem", 
+        letterSpacing: ".10rem"
     },
     button: {
         width: "20%", 

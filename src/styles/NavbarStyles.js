@@ -18,6 +18,12 @@ const styles = theme => ({
     root: {
         width: "100%",
         marginBottom: 0, 
+        position: "sticky", 
+        top: 0, 
+        //TODO Fix this behavior 👇 
+        // I gave this element an arbitrary z-index value, just trying to make sure it was stacked ON TOP of everything else, so the sticky setting would work how I expected 
+        // On the landing page it's colliding with another element... when it hits that element it scrolls away, which it shouldn't do
+        zIndex: 10
     }, 
     grow: {
         flexGrow: 1
@@ -28,9 +34,19 @@ const styles = theme => ({
         }
     },
     homeLink: {
-        //marginLeft: -12, 
-        //marginRight: 20, 
         color: "white", 
+        textDecoration: "none", 
+        fontFamily: "'Oswald', sans-serif", 
+        fontSize: "2.0rem",
+    },
+    // ! sticking point - feeling a little silly 
+    // I'm definining two classes depending on light or dark mode 
+    // logically, only one or two property has to change between the settings 
+    // how can I define these styles in a modular, DRY way?? 
+    // ? Needs research 
+    // For now defining them like this is just a chance to get reps in 🤷‍♀️
+    homeLinkDark: {
+        color: "black", 
         textDecoration: "none", 
         fontFamily: "'Oswald', sans-serif", 
         fontSize: "2.0rem",
@@ -42,20 +58,21 @@ const styles = theme => ({
         borderRadius: ".2rem",
         color: "white", 
         textDecoration: "none", 
-        //fontFamily: "'Roboto', sans-serif", 
-        fontSize: "1.3rem"
+        fontFamily: "'Lato', sans-serif", 
+        fontSize: "1.3rem", 
+        lineHeight: "1.9rem"
     },
-    // title: {
-    //     //TODO Below "sm" the title will not show at all
-    //     fontFamily: "'Oswald', sans-serif", 
-    //     color: "white",
-    //     display: "none", 
-    //     [theme.breakpoints.up("sm")] : {
-    //         // using the theme 
-    //         // the styles written here will apply to the small breakpoint and UP
-    //         display: "block"
-    //     }
-    //}, 
+    loginLinkDark: {
+        border: "2.0px solid black", 
+        paddingBottom: ".10%",
+        padding: "0 10%",
+        borderRadius: ".2rem",
+        color: "black", 
+        textDecoration: "none", 
+        fontFamily: "'Lato', sans-serif", 
+        fontSize: "1.3rem", 
+        lineHeight: "1.9rem"
+    }, 
     search: {
         position: "relative", 
         // using Material UI styles👇
@@ -70,6 +87,22 @@ const styles = theme => ({
         "&:hover": {
             // this is how we select the hover event in JSS ⬆
             backgroundColor: fade(theme.palette.common.white, 0.25)
+        }, 
+    },
+    searchDark: {
+        position: "relative", 
+        // using Material UI styles👇
+        borderRadius: theme.shape.borderRadius, 
+        backgroundColor: fade(theme.palette.common.black, 0.15), 
+        marginLeft: 0,
+        width: "100%", 
+        [theme.breakpoints.up("sm")]: {
+            marginLeft: theme.spacing(1), 
+            width: "auto"
+        },
+        "&:hover": {
+            // this is how we select the hover event in JSS ⬆
+            backgroundColor: fade(theme.palette.common.black, 0.25)
         }, 
     }, 
     searchIcon: {

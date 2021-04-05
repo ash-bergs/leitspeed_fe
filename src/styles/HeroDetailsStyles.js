@@ -44,7 +44,7 @@ const styles = theme => ({
         }
     },
     bodyText: {
-        fontFamily: "'Roboto', sans-serif",
+        fontFamily: "'Lato', sans-serif",
         fontSize: "1.3rem", 
         letterSpacing: ".10rem", 
         [theme.breakpoints.down("sm")] : {
