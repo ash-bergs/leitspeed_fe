@@ -1,6 +1,7 @@
 const styles = theme => ({
     root: {
       width: "auto",
+      height: "100vh",
       display: "block",
       marginLeft: theme.spacing(2),
       marginRight: theme.spacing(2),

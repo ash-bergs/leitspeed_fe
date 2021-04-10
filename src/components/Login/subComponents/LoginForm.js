@@ -3,11 +3,11 @@ import React, { useContext } from 'react';
 import { Checkbox, FormControl, FormControlLabel, Input, InputLabel } from '@material-ui/core'; 
 import Button from '@material-ui/core/Button'; 
 import { withStyles } from '@material-ui/core/styles'; 
-import styles from '../../styles/FormStyles'; 
-import { ThemeContext } from '../../contexts/ThemeContext'; 
+import styles from './LoginFormStyles'; 
+import { ThemeContext } from '../../../contexts/ThemeContext'; 
 
 
-function Login(props) {
+function LoginForm(props) {
     const { isDarkMode } = useContext(ThemeContext); 
     const { classes } = props; 
 
@@ -38,4 +38,4 @@ function Login(props) {
     ); 
 }
 
-export default withStyles(styles)(Login); 
+export default withStyles(styles)(LoginForm); 

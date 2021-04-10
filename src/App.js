@@ -12,6 +12,7 @@ import { ThemeProvider } from "./contexts/ThemeContext";
 // import LoginView from './components/login/LoginView'; 
 import Dashboard from './components/Dashboard/index'
 import Landing from './components/Hero/index'; 
+import Login from './components/Login'; 
 import Nav from './components/Nav/index';
 import PageContent from './components/PageContent'; 
 
@@ -24,6 +25,7 @@ function App() {
         <CssBaseline />
           <Router>
           <Route exact path="/" component={Landing} />
+          <Route path="/login" component={Login} />
           <Route path="/dashboard" component={Dashboard} />
             {/* <Route exact path="/" component={Landing} />
             <Route path="/login" component={LoginView} /> 
