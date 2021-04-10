@@ -22,7 +22,7 @@ export default Landing;
 
 // color: FF4181
 
-//! restructure notes: This should be the main index.js of the HERO component directory 
+//! restructure notes: This should be the main index.js of the HERO component directory? 
 
 /* -------------------------------------------------------------------------- */
 /*                             proposed structure                             */

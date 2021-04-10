@@ -3,10 +3,10 @@ import React, { useContext } from 'react';
 import { AppBar, IconButton, InputBase, Switch, Toolbar } from '@material-ui/core';  
 import SearchIcon from '@material-ui/icons/Search';
 import { withStyles } from '@material-ui/core/styles'; 
-import styles from '../styles/NavbarStyles'; 
+import styles from './NavStyles'; 
 //* context imports 
 // ThemeContext is not a direct export, remember the curly braces!
-import { ThemeContext } from '../contexts/ThemeContext'; 
+import { ThemeContext } from '../../contexts/ThemeContext'; 
 
 
 function Nav(props) {

@@ -11,7 +11,7 @@ import { ThemeProvider } from "./contexts/ThemeContext";
 // import Landing from './components/Hero'; 
 // import LoginView from './components/login/LoginView'; 
 import Landing from './components/Hero/index'; 
-import Nav from './components/Nav'; 
+import Nav from './components/Nav/Nav'; 
 import PageContent from './components/PageContent'; 
 
 function App() {
