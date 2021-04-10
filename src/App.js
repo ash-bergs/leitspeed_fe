@@ -10,8 +10,9 @@ import { ThemeProvider } from "./contexts/ThemeContext";
 // import Dashboard from './components/dashboard/Dashboard'; 
 // import Landing from './components/Hero'; 
 // import LoginView from './components/login/LoginView'; 
+import Dashboard from './components/Dashboard/index'
 import Landing from './components/Hero/index'; 
-import Nav from './components/Nav/Nav'; 
+import Nav from './components/Nav/index';
 import PageContent from './components/PageContent'; 
 
 function App() {
@@ -23,6 +24,7 @@ function App() {
         <CssBaseline />
           <Router>
           <Route exact path="/" component={Landing} />
+          <Route path="/dashboard" component={Dashboard} />
             {/* <Route exact path="/" component={Landing} />
             <Route path="/login" component={LoginView} /> 
             <Route path="/dashboard" component={Dashboard} />  */}

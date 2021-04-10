@@ -6,7 +6,7 @@ import { FormControl, FormControlLabel, FormLabel, RadioGroup, Radio } from '@ma
 //! I want this component to render radio buttons.... I need to do more research to see how those work with Material UI
 import { withStyles } from '@material-ui/core/styles'; 
 
-import styles from '../../styles/DashboardStyles'; 
+import styles from '../../Dashboard/DashboardStyles'; 
 
 function DecksView({ decks, classes }) {
     //* the props object will pass collection of links will be rendered - decks will most likely be the variable name will also carry the title? FormLabel
