@@ -1,10 +1,10 @@
 import React from 'react'; 
 import { Box, Paper, Typography } from '@material-ui/core'; 
 import { withStyles } from '@material-ui/core/styles'; 
-import styles from '../../styles/HeroDetailsStyles';
+import styles from './HeroDetailsStyles';
 
-import curveGraphic from '../../resources/images/forgetting-curve-graphic.jpg';
-import spacedRepGraphic from '../../resources/images/spaced-rep-graphic.jpg'
+import curveGraphic from './forgetting-curve-graphic.jpg';
+import spacedRepGraphic from './spaced-rep-graphic.jpg'
 
 function HeroDetails({ classes }) {
 
