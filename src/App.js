@@ -7,10 +7,13 @@ import './App.css'
 // now that the Provider has been built, we need to actually use it, so its values can be correctly read by children components 
 import { ThemeProvider } from "./contexts/ThemeContext"; 
 
-import Dashboard from './components/dashboard/Dashboard'; 
-import Landing from './components/landing/Landing'; 
-import LoginView from './components/login/LoginView'; 
-import Nav from './components/Nav'; 
+// import Dashboard from './components/dashboard/Dashboard'; 
+// import Landing from './components/Hero'; 
+// import LoginView from './components/login/LoginView'; 
+import Dashboard from './components/Dashboard/index'
+import Landing from './components/Hero/index'; 
+import Login from './components/Login'; 
+import Nav from './components/Nav/index';
 import PageContent from './components/PageContent'; 
 
 function App() {
@@ -21,9 +24,12 @@ function App() {
         <Nav />
         <CssBaseline />
           <Router>
-            <Route exact path="/" component={Landing} />
+          <Route exact path="/" component={Landing} />
+          <Route path="/login" component={Login} />
+          <Route path="/dashboard" component={Dashboard} />
+            {/* <Route exact path="/" component={Landing} />
             <Route path="/login" component={LoginView} /> 
-            <Route path="/dashboard" component={Dashboard} /> 
+            <Route path="/dashboard" component={Dashboard} />  */}
             {/* Path to / is a welcome header, logo, etc that kind of thing - renders sign up form */}
             {/* Route to dashboard, protected - Renders Cards, Study lists?, Study game */}
             {/* Add/Edit Form - use one form to complete both tasks?? */}

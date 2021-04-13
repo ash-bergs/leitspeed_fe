@@ -1,7 +1,7 @@
 import React, { useState } from 'react'; 
 //*material UI hook wraps component with styles (CardStyles.js)
 import { withStyles } from '@material-ui/core/styles'; 
-import styles from '../styles/CardStyles'; 
+import styles from './CardStyles'; 
 
 import ReactCardFlip from 'react-card-flip'; 
 //* material UI components 
@@ -63,6 +63,31 @@ const FlashCard = ({ card, classes }) => {
 }
 
 export default withStyles(styles)(FlashCard); 
+
+/* -------------------------------------------------------------------------- */
+/*                             proposed structure                             */
+/*
+    * 4/10/2021 - I'm still learning. File structure has a huge impact on a project's 
+    * future. This structure may change as I learn more and improve my practices.      
+    components
+        | Card 📁
+            | CardStyles.js
+            | index.js -> Card component itself 
+    
+    ? Should the Cards component be in this directory?? Or should it be its own modular directory? 
+    ! HARRISON LOOK HERE 👆👆👆 Need input 
+    
+    * Hypothesis: This directory should be renamed to CARDS, index.js should export the Cards component itself 
+    * Card will be a SUBCOMPONENT, and can be implicity re-exported from Cards to be reused elsewhere
+    * So it will look like:     
+    components
+        | Cards 📁
+            | subComponents 📁
+                | Card.js
+                | CardStyles.js
+            | index.js 
+*/
+/* -------------------------------------------------------------------------- */
 
 /* --------------------------- Card Design Update --------------------------- */
 //* Now that the build has seen some progress, the shape of how things will fit together is starting to emerge. 

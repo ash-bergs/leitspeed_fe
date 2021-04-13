@@ -1,17 +1,17 @@
 import React from 'react'; 
 import { Container, Paper } from '@material-ui/core'; 
 import { withStyles } from '@material-ui/core/styles'; 
-import styles from '../../styles/LoginViewStyles'; 
-import Login from './Login'; 
+import styles from './LoginStyles'; 
+import LoginForm from './subComponents/LoginForm'; 
 
-function LoginView({ classes }) {
+function Login({ classes }) {
     return (
         <Container className={classes.root}>
             <Paper className={classes.paper}>
-                <Login />
+                <LoginForm />
             </Paper>
         </Container>
     ); 
 }
 
-export default withStyles(styles)(LoginView); 
+export default withStyles(styles)(Login); 

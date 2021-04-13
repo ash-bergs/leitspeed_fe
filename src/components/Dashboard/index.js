@@ -9,8 +9,8 @@ import { withStyles } from '@material-ui/core/styles';
 
 //* dev built components 
 import Cards from '../Cards'; 
-import PanelLeft from './PanelLeft'; 
-import styles from '../../styles/DashboardStyles'; 
+import UserPanel from '../UserPanel'; 
+import styles from './DashboardStyles'; 
 
 /* -------------------------------------------------------------------------- */
 /*                             About the Dashboard                            */
@@ -175,7 +175,7 @@ function Dashboard({ classes }) {
             
             {/* Pass DECKS to PanelLeft, and finally to the DecksView child component */}
             {/* Pass LEIT-DECKS to PanelLeft, and finally to the DecksView child component */}
-            <PanelLeft decks={leitDecks} leitDecks={leitDecks} />
+            <UserPanel decks={leitDecks} leitDecks={leitDecks} />
 
             {/* Paper component gives us something that feels like paper, flat, white, etc*/}
             <Box className={classes.box}>

@@ -20,9 +20,6 @@ const styles = theme => ({
         marginBottom: 0, 
         position: "sticky", 
         top: 0, 
-        //TODO Fix this behavior 👇 
-        // I gave this element an arbitrary z-index value, just trying to make sure it was stacked ON TOP of everything else, so the sticky setting would work how I expected 
-        // On the landing page it's colliding with another element... when it hits that element it scrolls away, which it shouldn't do
         zIndex: 10
     }, 
     grow: {
@@ -43,7 +40,7 @@ const styles = theme => ({
     // I'm definining two classes depending on light or dark mode 
     // logically, only one or two property has to change between the settings 
     // how can I define these styles in a modular, DRY way?? 
-    // ? Needs research 
+    // ? Needs research 🤓🤓
     // For now defining them like this is just a chance to get reps in 🤷‍♀️
     homeLinkDark: {
         color: "black", 

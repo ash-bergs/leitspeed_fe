@@ -16,11 +16,11 @@ import { Button, Box, Paper } from '@material-ui/core';
 //* material UI hooks
 import { withStyles } from '@material-ui/core/styles'; 
 
-import DecksView from './DecksView'; 
-import styles from '../../styles/DashboardStyles'; 
+import DecksView from './subComponents/DecksView'; 
+import styles from '../Dashboard/DashboardStyles'; 
 //TODO - Give the PanelLeft component "sticky" positioning - let the Panel follow the user when they scroll
 
-function PanelLeft({ decks, leitDecks, classes }) {
+function UserPanel({ decks, leitDecks, classes }) {
     // ? Should the value for the form selection (state) live here? We only want to respond to one at a time.. can we pass that same value prop to both forms? and when it's updated in EITHER it will update the Cards component?
     return (
         <Paper className={classes.panelPaper}>
@@ -50,4 +50,8 @@ function PanelLeft({ decks, leitDecks, classes }) {
     ); 
 }
 
-export default withStyles(styles)(PanelLeft); 
+export default withStyles(styles)(UserPanel); 
+
+//! PanelLeft should be its own component, with its own component directory... I think 
+//? Rename component to UserPanel ? 
+

@@ -1,12 +1,12 @@
 import React from 'react'; 
-import FlashCard from './Card'; 
+import Card from './subComponents/Card'; 
 
 function Cards({ cards }){
 
     return(
         <React.Fragment>
             {cards.map((card, index) => (
-                <FlashCard card={card} key={index} />
+                <Card card={card} key={index} />
             ))}
         </React.Fragment>
     ); 
