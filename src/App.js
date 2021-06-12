@@ -1,6 +1,6 @@
 import './App.css';
 import React, { useEffect, useState } from 'react';
-import { BrowserRouter as Router, Route } from 'react-router-dom';
+import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
 import { CssBaseline } from '@material-ui/core';
 // import { createServer, Model } from 'miragejs';
 import axios from 'axios';
@@ -16,6 +16,7 @@ import Nav from './components/Nav/index';
 
 function App() {
   const [cards, setCards] = useState([]);
+  const [users, setUsers] = useState([]);
 
   // 🤙 call Mirage API to set cards
   // runs on first render
@@ -30,18 +31,31 @@ function App() {
       });
   }, []);
 
-  console.log(cards);
+  // get users on render
+  useEffect(() => {
+    axios
+      .get('/api/users')
+      .then((res) => {
+        setUsers(res.data.users);
+      })
+      .catch((err) => {
+        console.log(err);
+      });
+  }, []);
+
   return (
     <ThemeProvider>
       <PageContent>
         <Nav />
         <CssBaseline />
         <Router>
-          <Route exact path="/" component={Landing} />
-          <Route path="/login" component={Login} />
-          <Route path="/dashboard">
-            <Dashboard cards={cards} />
-          </Route>
+          <Switch>
+            <Route exact path="/" component={Landing} />
+            <Route path="/login" component={Login} />
+            <Route path="/dashboard">
+              <Dashboard cards={cards} />
+            </Route>
+          </Switch>
         </Router>
       </PageContent>
     </ThemeProvider>
