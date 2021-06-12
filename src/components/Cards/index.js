@@ -1,18 +1,25 @@
-import React from 'react'; 
-import Card from './subComponents/Card'; 
+import React from 'react';
+import Card from './subComponents/Card';
 
-function Cards({ cards }){
-
-    return(
-        <React.Fragment>
-            {cards.map((card, index) => (
-                <Card card={card} key={index} />
-            ))}
-        </React.Fragment>
-    ); 
+function Cards({ cards }) {
+  return (
+    <React.Fragment>
+      <div
+        className="container"
+        style={{
+          display: 'grid',
+          gridTemplateColumns: '1fr 1fr',
+        }}
+      >
+        {cards.map((card, index) => (
+          <Card card={card} key={index} />
+        ))}
+      </div>
+    </React.Fragment>
+  );
 }
 
-export default Cards; 
+export default Cards;
 
 /* -------------------------------------------------------------------------- */
 /*                                 About Cards                                */

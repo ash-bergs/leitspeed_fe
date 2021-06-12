@@ -30,7 +30,7 @@ const FlashCard = ({ card, classes }) => {
   //! It may be best to add a "flip" button, rather than making the whole card clickable? Otherwise features like definitions can't really be used (without flipping the card)
   return (
     <React.Fragment>
-      <ReactCardFlip isFlipped={isFlipped} flipDirection="vertical">
+      <ReactCardFlip isFlipped={isFlipped} flipDirection="horizontal">
         <Card onClick={flipCard} className={classes.root} variant="outlined">
           <CardHeader
             avatar={
@@ -42,7 +42,7 @@ const FlashCard = ({ card, classes }) => {
             title="Deck Subject Here"
           />
           <CardContent className={classes.content}>
-            <Typography className={classes.text} variant="h4">
+            <Typography className={classes.text} variant="h5">
               {card.card_front}
             </Typography>
           </CardContent>

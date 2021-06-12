@@ -1,21 +1,18 @@
+import './App.css';
 import React, { useEffect, useState } from 'react';
 import { BrowserRouter as Router, Route } from 'react-router-dom';
 import { CssBaseline } from '@material-ui/core';
 import { createServer, Model } from 'miragejs';
 import axios from 'axios';
 
-import './App.css';
 // now that the Provider has been built, we need to actually use it, so its values can be correctly read by children components
 import { ThemeProvider } from './contexts/ThemeContext';
+import PageContent from './components/PageContent';
 
-// import Dashboard from './components/dashboard/Dashboard';
-// import Landing from './components/Hero';
-// import LoginView from './components/login/LoginView';
 import Dashboard from './components/Dashboard/index';
 import Landing from './components/Hero/index';
 import Login from './components/Login';
 import Nav from './components/Nav/index';
-import PageContent from './components/PageContent';
 
 // 🧞 Mirage DB set up
 createServer({
@@ -72,6 +69,7 @@ createServer({
     server.create('deck', {
       name: 'Computer Science',
       public: false,
+      color: 'pink',
     });
   },
 });
@@ -92,6 +90,7 @@ function App() {
       });
   }, []);
 
+  console.log(cards);
   return (
     <ThemeProvider>
       <PageContent>
