@@ -64,7 +64,9 @@ const FlashCard = ({ card, classes }) => {
             </Typography>
           </CardContent>
           <CardActions>
-            <Link to="/edit">Edit</Link>
+            <Link onClick={() => console.log(card)} to="/edit">
+              Edit
+            </Link>
           </CardActions>
         </Card>
       </ReactCardFlip>
