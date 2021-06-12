@@ -9,6 +9,7 @@ import axios from 'axios';
 import { ThemeProvider } from './contexts/ThemeContext';
 import PageContent from './components/PageContent';
 
+import EditForm from './components/EditForm';
 import Dashboard from './components/Dashboard/index';
 import Landing from './components/Hero/index';
 import Login from './components/Login';
@@ -54,6 +55,9 @@ function App() {
             <Route path="/login" component={Login} />
             <Route path="/dashboard">
               <Dashboard cards={cards} />
+            </Route>
+            <Route path="/edit">
+              <EditForm />
             </Route>
           </Switch>
         </Router>
