@@ -10,10 +10,13 @@ const initialFormValues = {
 const EditForm = () => {
   const [formValues, setFormValues] = useState(initialFormValues);
 
+  //TODO - Create changeHandlers for the Form Input fields below!
+  //TODO - How do we want to manage this state? Should it stay in this form, or be lifted to App?
+
   return (
     <React.Fragment>
       <form>
-        <label htmlFor="Card_front" className="card_front">
+        <label htmlFor="card_front" className="card_front">
           Front of Card
         </label>
         <input
@@ -26,7 +29,7 @@ const EditForm = () => {
             }
           }
         />
-        <label htmlFor="Card_back" className="card_back">
+        <label htmlFor="card_back" className="card_back">
           Back of Card
         </label>
         <input
