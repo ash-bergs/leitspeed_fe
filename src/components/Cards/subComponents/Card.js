@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import { Link } from 'react-router-dom';
 //*material UI hook wraps component with styles (CardStyles.js)
 import { withStyles } from '@material-ui/core/styles';
 import styles from './CardStyles';
@@ -63,9 +64,9 @@ const FlashCard = ({ card, classes }) => {
             </Typography>
           </CardContent>
           <CardActions>
-            <Button size="small" variant="outlined">
+            <Link onClick={() => console.log(card)} to="/edit">
               Edit
-            </Button>
+            </Link>
           </CardActions>
         </Card>
       </ReactCardFlip>
