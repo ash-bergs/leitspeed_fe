@@ -44,6 +44,8 @@ function App() {
       });
   }, []);
 
+  console.log(users);
+
   return (
     <ThemeProvider>
       <PageContent>
