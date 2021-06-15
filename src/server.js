@@ -67,6 +67,14 @@ export function makeServer({ environment = 'development' } = {}) {
         return schema.cards.all();
       });
 
+      // POST cards route
+      this.post('/cards', (schema, request) => {
+        let attrs = JSON.parse(request.requestBody);
+        // use the schema object to create a new card Model instance
+        schema.cards.create(attrs);
+        return schema.cards.all();
+      });
+
       // DECKS routes
       this.get('/decks', (schema) => {
         return schema.decks.all();

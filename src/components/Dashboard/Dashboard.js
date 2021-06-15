@@ -1,4 +1,5 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 //* material UI components
 import { Container, Box } from '@material-ui/core';
 
@@ -14,6 +15,7 @@ import styles from './DashboardStyles';
 function Dashboard({ cards, classes }) {
   return (
     <Container className={classes.root} fixed>
+      <Link to="/add-card">Add a Card</Link>
       <Box className={classes.box}>
         <Cards cards={cards} />
       </Box>
