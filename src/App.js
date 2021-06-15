@@ -44,7 +44,7 @@ function App() {
       });
   }, []);
 
-  console.log(cards);
+  console.log(users);
 
   return (
     <ThemeProvider>
