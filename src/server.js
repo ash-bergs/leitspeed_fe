@@ -68,12 +68,11 @@ export function makeServer({ environment = 'development' } = {}) {
       });
 
       // POST cards route
-      //hardcoding the ID, we've added 3 cards
-      let newId = 4;
       this.post('/cards', (schema, request) => {
         let attrs = JSON.parse(request.requestBody);
-        attrs.id = newId++;
-        return { card: attrs };
+        // use the schema object to create a new card Model instance
+        schema.cards.create(attrs);
+        return schema.cards.all();
       });
 
       // DECKS routes

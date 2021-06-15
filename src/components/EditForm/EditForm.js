@@ -11,7 +11,7 @@ const initialFormValues = {
   public: false,
 };
 
-const EditForm = () => {
+const EditForm = ({ setCards }) => {
   const [formValues, setFormValues] = useState(initialFormValues);
 
   // 🔫 change handler
@@ -33,7 +33,8 @@ const EditForm = () => {
       .post('/api/cards', newCard)
       .then((res) => {
         // the response should be an object - the new card
-        console.log(res);
+        setCards(res.data.cards);
+        setFormValues(initialFormValues);
       })
       .catch((err) => {
         console.log(err);

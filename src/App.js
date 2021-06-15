@@ -44,22 +44,20 @@ function App() {
       });
   }, []);
 
-  console.log(users);
+  console.log(cards);
 
   return (
     <ThemeProvider>
       <PageContent>
         <Nav />
         <CssBaseline />
+        <EditForm setCards={setCards} />
         <Router>
           <Switch>
             <Route exact path="/" component={Landing} />
             <Route path="/login" component={Login} />
             <Route path="/dashboard">
               <Dashboard cards={cards} />
-            </Route>
-            <Route path="/edit">
-              <EditForm />
             </Route>
           </Switch>
         </Router>
