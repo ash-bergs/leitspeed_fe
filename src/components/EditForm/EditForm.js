@@ -1,4 +1,8 @@
+import axios from 'axios';
 import React, { useState } from 'react';
+
+//TODO - How do we want to manage this state? Should it stay in this form, or be lifted to App?
+//TODO - Create changeHandlers for the Form Input fields below! (1/2 done!) (AE 6/13)
 
 const initialFormValues = {
   card_front: '',
@@ -10,9 +14,6 @@ const initialFormValues = {
 const EditForm = () => {
   const [formValues, setFormValues] = useState(initialFormValues);
 
-  //TODO - Create changeHandlers for the Form Input fields below! (1/2 done!) (AE 6/13)
-  //TODO - How do we want to manage this state? Should it stay in this form, or be lifted to App?
-
   // 🔫 change handler
   const onChange = (e) => {
     const { name, value } = e.target;
@@ -23,21 +24,20 @@ const EditForm = () => {
     });
   };
 
-  //TODO: (AE 6/13)
-  // ✅ change handler
-  // ? Why do check boxes need to be handled specially again? I need to refresh on this 🗞📰
-  // For now they are just hardcoded to false
-  // these checkboxes are both boolean values, so this handler need only set it to whatever it *wasn't* before
-
-  /* ---------------------- 👇 This isn't working - why? 🤔 ---------------------- */
-  // This is too much like the handler above it, and I think that's because I'm not understanding some fundamental thing about checkbox change events. Time to do some research! 🤓
-  const onCheckboxChange = (e) => {
-    const { name, value } = e.target;
-    setFormValues({
-      ...formValues,
-      // !value will set the value to whatever it isn't
-      [name]: !value,
-    });
+  // submit handler
+  const onSubmit = (e) => {
+    e.preventDefault();
+    // the request body will be the spread in form values
+    let newCard = { ...formValues };
+    axios
+      .post('/api/cards', newCard)
+      .then((res) => {
+        // the response should be an object - the new card
+        console.log(res);
+      })
+      .catch((err) => {
+        console.log(err);
+      });
   };
 
   console.log('form values', formValues);
@@ -63,26 +63,7 @@ const EditForm = () => {
           value={formValues.card_back}
           onChange={onChange}
         />
-        <label htmlFor="Active" className="active">
-          Active:
-        </label>
-        <input
-          type="checkbox"
-          className="active"
-          value="active"
-          checked={formValues.active}
-          onChange={onCheckboxChange}
-        />
-        <label htmlFor="Public" className="public">
-          Public:
-        </label>
-        <input
-          type="checkbox"
-          className="active"
-          value="active"
-          checked={formValues.public}
-          onChange={onCheckboxChange}
-        />
+        <button onClick={onSubmit}>Submit</button>
       </form>
     </React.Fragment>
   );
@@ -107,5 +88,49 @@ export default EditForm;
         active: true, //* checkbox on the form
         public: true, //* checkbox on the form 
     }
+*/
+/* -------------------------------------------------------------------------- */
+
+/* -------------------------------------------------------------------------- */
+/*                                    TODO                                    */
+/*
+    Removed:
+    <label htmlFor="Active" className="active">
+          Active:
+        </label>
+        <input
+          type="checkbox"
+          className="active"
+          name="active"
+          value="active"
+          checked={active}
+          onChange={onActiveChange}
+        />
+        <label htmlFor="Public" className="public">
+          Public:
+        </label>
+        <input
+          type="checkbox"
+          className="public"
+          value="public"
+          name="public"
+          checked={formValues.public}
+          onChange={onCheckboxChange}
+        />
+
+  ! DOESNT WORK. WHY?????
+  This is too much like the handler above it, and I think that's because I'm not understanding some fundamental thing about checkbox change events. Time to do some research! 🤓
+  const onCheckboxChange = (e) => {
+    const { name, value } = e.target;
+    setFormValues({
+      ...formValues,
+       !value will set the value to whatever it isn't
+      [name]: !value,
+    });
+  };
+  
+    TODO - I need to figure out how to toggle these values... I'm misunderstanding how checkboxes work in react >.<
+
+    RESOURCE: https://www.freecodecamp.org/news/how-to-work-with-multiple-checkboxes-in-react/
 */
 /* -------------------------------------------------------------------------- */
