@@ -1,5 +1,6 @@
 import axios from 'axios';
 import React, { useState } from 'react';
+import { Link } from 'react-router-dom';
 
 //TODO - How do we want to manage this state? Should it stay in this form, or be lifted to App?
 //TODO - Create changeHandlers for the Form Input fields below! (1/2 done!) (AE 6/13)
@@ -11,7 +12,7 @@ const initialFormValues = {
   public: false,
 };
 
-const EditForm = ({ setCards }) => {
+const AddForm = ({ setCards }) => {
   const [formValues, setFormValues] = useState(initialFormValues);
 
   // 🔫 change handler
@@ -24,7 +25,7 @@ const EditForm = ({ setCards }) => {
     });
   };
 
-  // submit handler
+  // 👍 submit handler
   const onSubmit = (e) => {
     e.preventDefault();
     // the request body will be the spread in form values
@@ -34,14 +35,13 @@ const EditForm = ({ setCards }) => {
       .then((res) => {
         // the response should be an object - the new card
         setCards(res.data.cards);
+        // reset form values
         setFormValues(initialFormValues);
       })
       .catch((err) => {
         console.log(err);
       });
   };
-
-  console.log('form values', formValues);
 
   return (
     <React.Fragment>
@@ -66,11 +66,12 @@ const EditForm = ({ setCards }) => {
         />
         <button onClick={onSubmit}>Submit</button>
       </form>
+      <Link to="/dashboard">Return to Dashboard</Link>
     </React.Fragment>
   );
 };
 
-export default EditForm;
+export default AddForm;
 
 /* -------------------------------------------------------------------------- */
 /*                               About this Form                              */
