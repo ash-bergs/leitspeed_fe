@@ -2,6 +2,8 @@ import React from 'react';
 import { Container, Typography } from '@material-ui/core';
 
 import Deck from './Deck';
+import Grid from '../../layoutComponents/Grid';
+import SubHeader from '../../layoutComponents/SubHeader';
 
 // this component will be passed a piece of state from App, a decks array
 // it will visualize the decks here - i will need to make them into Routes that will render the cards in the deck, and more information
@@ -13,10 +15,8 @@ const Decks = ({ decks }) => {
 
   return (
     <Container>
-      <Typography>Recent Decks:</Typography>
-      <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr 1fr' }}>
-        {renderedItems}
-      </div>
+      <SubHeader component={'h3'}>Recent Decks</SubHeader>
+      <Grid>{renderedItems}</Grid>
     </Container>
   );
 };
