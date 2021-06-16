@@ -49,8 +49,21 @@ export function makeServer({ environment = 'development' } = {}) {
       });
       server.create('deck', {
         name: 'Computer Science',
-        public: false,
+        public: true,
         color: 'pink',
+        user: 'snazzyStudy',
+      });
+      server.create('deck', {
+        name: 'Bio 101',
+        public: true,
+        color: 'pink',
+        user: 'snazzyStudy',
+      });
+      server.create('deck', {
+        name: 'Machine Learning',
+        public: true,
+        color: 'pink',
+        user: 'snazzyStudy',
       });
       server.create('user', {
         email: 'snazzyStudy@gmail.com',
