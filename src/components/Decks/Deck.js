@@ -1,19 +1,27 @@
 import React from 'react';
 
 // material UI imports
-import { Card, CardActions, CardContent, Typography } from '@material-ui/core';
+import {
+  Button,
+  Card,
+  CardActions,
+  CardContent,
+  Typography,
+} from '@material-ui/core';
+import { withStyles } from '@material-ui/core/styles';
+import styles from './DeckStyles';
 
-const Deck = () => {
+const Deck = ({ classes, deck }) => {
   return (
-    <Card>
+    <Card className={classes.root}>
       <CardContent>
-        <Typography>{deck.title}</Typography>
+        <Typography className={classes.title}>{deck.name}</Typography>
       </CardContent>
       <CardActions>
-        <Button>See all cards</Button>
+        <Button className={classes.button}>See all cards</Button>
       </CardActions>
     </Card>
   );
 };
 
-export default Deck;
+export default withStyles(styles)(Deck);

@@ -11,13 +11,14 @@ import PageContent from './components/PageContent';
 
 import AddForm from './components/AddForm';
 import Dashboard from './components/Dashboard/index';
-import Landing from './components/Hero/index';
+import Decks from './components/Decks';
+import Hero from './components/Hero/index';
 import Login from './components/Login';
 import Nav from './components/Nav/index';
 
 function App() {
   const [cards, setCards] = useState([]);
-  const [users, setUsers] = useState([]);
+  const [decks, setDecks] = useState([]);
 
   // 🤙 call Mirage API to set cards
   // runs on first render
@@ -32,19 +33,19 @@ function App() {
       });
   }, []);
 
-  // get users on render
+  // get decks on render
   useEffect(() => {
     axios
-      .get('/api/users')
+      .get('/api/decks')
       .then((res) => {
-        setUsers(res.data.users);
+        setDecks(res.data.decks);
       })
       .catch((err) => {
         console.log(err);
       });
   }, []);
 
-  console.log(users);
+  console.log(decks);
 
   return (
     <ThemeProvider>
@@ -53,7 +54,10 @@ function App() {
         <CssBaseline />
         <Router>
           <Switch>
-            <Route exact path="/" component={Landing} />
+            <Route exact path="/">
+              <Hero />
+              <Decks decks={decks} />
+            </Route>
             <Route path="/login">
               <Login />
             </Route>

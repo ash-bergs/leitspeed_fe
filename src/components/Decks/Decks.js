@@ -1,5 +1,5 @@
 import React from 'react';
-import { Container } from '@material-ui/core';
+import { Container, Typography } from '@material-ui/core';
 
 import Deck from './Deck';
 
@@ -8,10 +8,19 @@ import Deck from './Deck';
 
 const Decks = ({ decks }) => {
   const renderedItems = decks.map((deck) => {
-    return <Deck deck={deck} />;
+    return <Deck key={deck.id} deck={deck} />;
   });
 
-  return <Container>{renderedItems}</Container>;
+  return (
+    <Container>
+      <Typography>Recent Decks:</Typography>
+      <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr 1fr' }}>
+        {renderedItems}
+      </div>
+    </Container>
+  );
 };
 
 export default Decks;
+
+//! I think I'll take this time to make myself a responsive Grid display!
