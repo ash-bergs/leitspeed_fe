@@ -10,11 +10,7 @@ import Hero from './subComponents/Hero';
 //import HeroDetails from './subComponents/HeroDetails';
 
 function Landing() {
-  return (
-    <React.Fragment>
-      <Hero />
-    </React.Fragment>
-  );
+  return <Hero />;
 }
 
 export default Landing;
