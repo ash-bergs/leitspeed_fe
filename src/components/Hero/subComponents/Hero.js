@@ -12,7 +12,6 @@ import styles from './HeroStyles';
 
 function Hero(props) {
   const { classes } = props;
-  const { decks } = props;
   // used the result of a string interpolation expression to set the background... using the public folder took too long
   return (
     <Box className={classes.root}>
