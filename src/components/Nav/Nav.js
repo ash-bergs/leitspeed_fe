@@ -31,14 +31,25 @@ function Nav(props) {
               LeitStudy
             </a>
           </IconButton>
+
+          <IconButton>
+            <a
+              href="/dashboard"
+              className={isDarkMode ? classes.loginLinkDark : classes.loginLink}
+            >
+              Home
+            </a>
+          </IconButton>
+
           <IconButton>
             <a
               href="/login"
               className={isDarkMode ? classes.loginLinkDark : classes.loginLink}
             >
-              login
+              Login
             </a>
           </IconButton>
+
           <Switch onChange={toggleTheme} />
           {/* searchbar is all 3 following divs */}
           <div className={classes.grow} />

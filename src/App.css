@@ -18,12 +18,12 @@
 }
 
 .hero-right {
-  background-image: url("https://images.unsplash.com/photo-1524086496832-aa348741b7b9?ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=2031&q=80");
+  background-image: url('https://images.unsplash.com/photo-1524086496832-aa348741b7b9?ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=2031&q=80');
   background-position: center bottom;
 }
 
 .hero-left {
-  background-color: #1C317A;
+  background-color: #1c317a;
 }
 
 .hero p {
@@ -32,19 +32,19 @@
 }
 
 .hero h1 {
-  font-size: 6.0rem;
+  font-size: 6rem;
 }
 
 /* LOGO/NAV styles here*/
 
 nav {
-  background-color: #1C317A;
+  background-color: #1c317a;
   height: 6vh;
 }
 
 .logo {
   text-decoration: none;
-  font-size: 4.0rem;
+  font-size: 4rem;
   color: white;
   padding: 1%;
 }
@@ -53,4 +53,4 @@ nav {
   color: lightgreen;
   font-weight: 800;
   margin-left: 2px;
-} 
+}

@@ -1,6 +1,12 @@
 import axios from 'axios';
-import React, { useState } from 'react';
+import React, { useState, useContext } from 'react';
 import { Link } from 'react-router-dom';
+
+// material UI components
+import { Button, TextField, Paper } from '@material-ui/core';
+import { withStyles } from '@material-ui/core/styles';
+import styles from './AddFormStyles';
+import { ThemeContext } from '../../contexts/ThemeContext';
 
 //TODO - How do we want to manage this state? Should it stay in this form, or be lifted to App?
 //TODO - Create changeHandlers for the Form Input fields below! (1/2 done!) (AE 6/13)
@@ -12,14 +18,14 @@ const initialFormValues = {
   public: false,
 };
 
-const AddForm = ({ setCards }) => {
+const AddForm = ({ setCards, classes }) => {
+  const { isDarkMode } = useContext(ThemeContext);
   const [formValues, setFormValues] = useState(initialFormValues);
 
   // 🔫 change handler
   const onChange = (e) => {
     const { name, value } = e.target;
     setFormValues({
-      // spread in existing values ?
       ...formValues,
       [name]: value,
     });
@@ -45,33 +51,53 @@ const AddForm = ({ setCards }) => {
 
   return (
     <React.Fragment>
-      <form>
-        <label htmlFor="card_front" className="card_front">
-          Front of Card
-        </label>
-        <input
-          type="text"
-          name="card_front"
-          value={formValues.card_front}
-          onChange={onChange}
-        />
-        <label htmlFor="card_back" className="card_back">
-          Back of Card
-        </label>
-        <input
-          type="text"
-          name="card_back"
-          value={formValues.card_back}
-          onChange={onChange}
-        />
-        <button onClick={onSubmit}>Submit</button>
-      </form>
-      <Link to="/dashboard">Return to Dashboard</Link>
+      <Button variant="outlined">
+        <Link to="/dashboard">Return to Dashboard</Link>
+      </Button>
+      <Paper className={classes.root}>
+        <form autoComplete="off">
+          <TextField
+            label="Front of card"
+            type="text"
+            name="card_front"
+            value={formValues.card_front}
+            onChange={onChange}
+            rowsMax="4"
+            multiline
+            required
+            fullWidth
+            autoFocus
+            margin="normal"
+          />
+
+          <TextField
+            label="Back of card"
+            type="text"
+            name="card_back"
+            value={formValues.card_back}
+            onChange={onChange}
+            rowsMax="4"
+            multiline
+            required
+            fullWidth
+            margin="normal"
+          />
+
+          <Button
+            variant="contained"
+            color={isDarkMode ? 'default' : 'primary'}
+            fullWidth
+            onClick={onSubmit}
+          >
+            Submit
+          </Button>
+        </form>
+      </Paper>
     </React.Fragment>
   );
 };
 
-export default AddForm;
+export default withStyles(styles)(AddForm);
 
 /* -------------------------------------------------------------------------- */
 /*                               About this Form                              */
