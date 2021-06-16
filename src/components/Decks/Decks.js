@@ -15,7 +15,9 @@ const Decks = ({ decks }) => {
 
   return (
     <Container>
-      <SubHeader component={'h3'}>Recent Decks</SubHeader>
+      <SubHeader options={{ variant: 'h5', component: 'h3' }}>
+        Recent Decks
+      </SubHeader>
       <Grid>{renderedItems}</Grid>
     </Container>
   );
