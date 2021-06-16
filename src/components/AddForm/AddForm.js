@@ -3,7 +3,7 @@ import React, { useState, useContext } from 'react';
 import { Link } from 'react-router-dom';
 
 // material UI components
-import { Box, Button, TextField, Paper } from '@material-ui/core';
+import { Button, TextField, Paper } from '@material-ui/core';
 import { withStyles } from '@material-ui/core/styles';
 import styles from './AddFormStyles';
 import { ThemeContext } from '../../contexts/ThemeContext';
