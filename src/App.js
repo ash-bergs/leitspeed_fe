@@ -54,12 +54,16 @@ function App() {
         <Router>
           <Switch>
             <Route exact path="/" component={Landing} />
-            <Route path="/login" component={Login} />
-            <Route path="/dashboard">
-              <Dashboard cards={cards} />
+            <Route path="/login">
+              <Login />
             </Route>
+
             <Route path="/add-card">
               <AddForm setCards={setCards} />
+            </Route>
+
+            <Route path="/dashboard">
+              <Dashboard cards={cards} />
             </Route>
           </Switch>
         </Router>
