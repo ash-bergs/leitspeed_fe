@@ -12,8 +12,9 @@ import { withStyles } from '@material-ui/core/styles';
 import styles from './DeckStyles';
 
 const Deck = ({ classes, deck }) => {
+  const itemClass = `grid-item ${classes.root}`;
   return (
-    <Card className={classes.root}>
+    <Card className={itemClass}>
       <CardContent>
         <Typography className={classes.title}>{deck.name}</Typography>
       </CardContent>
