@@ -1,5 +1,5 @@
 import React from 'react';
-import { Link } from 'react-router-dom';
+
 //* material UI components
 import { Container, Box } from '@material-ui/core';
 
