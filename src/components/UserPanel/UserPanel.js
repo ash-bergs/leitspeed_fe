@@ -1,17 +1,42 @@
 import React from 'react';
-import { Box, Paper } from '@material-ui/core';
+import {
+  Box,
+  FormControl,
+  FormControlLabel,
+  FormLabel,
+  Paper,
+  Radio,
+  RadioGroup,
+} from '@material-ui/core';
 
 import { withStyles } from '@material-ui/styles';
 import styles from './UserPanelStyles';
+import SubHeader from '../../layoutComponents/SubHeader';
 
-const UserPanel = ({ classes }) => {
+const UserPanel = ({ classes, decks }) => {
+  const renderedItems = decks.map((deck, index) => {
+    return (
+      <FormControlLabel
+        key={deck.id}
+        value={deck.name}
+        control={<Radio />}
+        label={deck.name}
+      />
+    );
+  });
+
   return (
     <Paper className={classes.root} elevation={3} variant="outlined">
-      <p>User Controls:</p>
+      <SubHeader options={{ variant: 'h6', component: 'h4' }}>
+        User Controls
+      </SubHeader>
       <Box>
-        <p>Comp Sci</p>
-        <p>Chemistry</p>
-        <p>Art History</p>
+        <FormControl component="fieldset">
+          <FormLabel component="legend">Your Decks</FormLabel>
+          <RadioGroup name="decks" aria-label="decks">
+            {renderedItems}
+          </RadioGroup>
+        </FormControl>
       </Box>
     </Paper>
   );

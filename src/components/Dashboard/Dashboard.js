@@ -18,9 +18,13 @@ function Dashboard({ cards, decks, classes }) {
   //TODO decks is now being brought into the Dashboard, consume it!
 
   return (
-    <Container className={classes.root} fixed>
-      <UserPanel />
-      <Box className={classes.box}>
+    <Container
+      className={classes.root}
+      fixed
+      style={{ border: '1px solid white' }}
+    >
+      <UserPanel decks={decks} />
+      <Box className={classes.box} style={{ border: '1px solid blue' }}>
         <Cards cards={cards} />
       </Box>
     </Container>
