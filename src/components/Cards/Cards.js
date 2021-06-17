@@ -1,21 +1,17 @@
 import React from 'react';
 import Card from './subComponents/Card';
+import Grid from '../../layoutComponents/Grid';
+import { Box } from '@material-ui/core';
 
 function Cards({ cards }) {
+  const renderedItems = cards.map((card, index) => {
+    return <Card card={card} key={card.id} />;
+  });
+
   return (
-    <React.Fragment>
-      <div
-        className="container"
-        style={{
-          display: 'grid',
-          gridTemplateColumns: '1fr 1fr',
-        }}
-      >
-        {cards.map((card, index) => (
-          <Card card={card} key={index} />
-        ))}
-      </div>
-    </React.Fragment>
+    <Box>
+      <Grid>{renderedItems}</Grid>
+    </Box>
   );
 }
 
