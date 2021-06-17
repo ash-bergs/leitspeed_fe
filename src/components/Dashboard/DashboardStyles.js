@@ -8,7 +8,6 @@
 const styles = (theme) => ({
   // root describes parent Container (material UI component)
   root: {
-    height: '100vh',
     marginTop: theme.spacing(2),
     margin: '0 auto',
     display: 'flex',
