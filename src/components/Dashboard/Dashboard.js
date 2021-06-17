@@ -8,6 +8,7 @@ import { withStyles } from '@material-ui/core/styles';
 
 //* dev built components
 import Cards from '../Cards';
+import UserPanel from '../UserPanel/UserPanel';
 //import UserPanel from '../UserPanel';
 import styles from './DashboardStyles';
 
@@ -18,6 +19,7 @@ function Dashboard({ cards, decks, classes }) {
 
   return (
     <Container className={classes.root} fixed>
+      <UserPanel />
       <Box className={classes.box}>
         <Cards cards={cards} />
       </Box>

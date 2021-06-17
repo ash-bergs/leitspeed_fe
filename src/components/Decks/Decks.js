@@ -18,7 +18,7 @@ const Decks = ({ decks }) => {
       <SubHeader options={{ variant: 'h5', component: 'h3' }}>
         Recent Decks
       </SubHeader>
-      <Grid>{renderedItems}</Grid>
+      <Grid options={{ columns: '1fr 1fr 1fr' }}>{renderedItems}</Grid>
     </Container>
   );
 };

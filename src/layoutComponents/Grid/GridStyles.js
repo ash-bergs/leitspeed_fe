@@ -1,7 +1,7 @@
 const styles = (theme) => ({
   root: {
     display: 'grid',
-    gridTemplateColumns: '1fr 1fr 1fr',
+    //gridTemplateColumns: '1fr 1fr 1fr',
     padding: '5%',
 
     '& .grid-item': {

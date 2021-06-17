@@ -10,7 +10,7 @@ function Cards({ cards }) {
 
   return (
     <Box>
-      <Grid>{renderedItems}</Grid>
+      <Grid options={{ columns: '1fr 1fr' }}>{renderedItems}</Grid>
     </Box>
   );
 }
