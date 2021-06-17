@@ -30,47 +30,45 @@ const FlashCard = ({ card, classes }) => {
   //* each "face" of the card is connected to the flipCard handler fn
   //! It may be best to add a "flip" button, rather than making the whole card clickable? Otherwise features like definitions can't really be used (without flipping the card)
   return (
-    <React.Fragment>
-      <ReactCardFlip isFlipped={isFlipped} flipDirection="horizontal">
-        <Card onClick={flipCard} className={classes.root} variant="outlined">
-          <CardHeader
-            avatar={
-              <Avatar className={classes.small} aria-label="subject">
-                CSS
-              </Avatar>
-            }
-            className={classes.header}
-            title="Deck Subject Here"
-          />
-          <CardContent className={classes.content}>
-            <Typography className={classes.text} variant="h5">
-              {card.card_front}
-            </Typography>
-          </CardContent>
-          <CardActions>
-            <Button size="small" variant="outlined" color="secondary">
-              Delete
-            </Button>
-            <Button size="small" variant="outlined">
-              Edit
-            </Button>
-          </CardActions>
-        </Card>
+    <ReactCardFlip isFlipped={isFlipped} flipDirection="horizontal">
+      <Card onClick={flipCard} className={classes.root}>
+        <CardHeader
+          avatar={
+            <Avatar className={classes.small} aria-label="subject">
+              CSS
+            </Avatar>
+          }
+          className={classes.header}
+          title="Deck Subject Here"
+        />
+        <CardContent className={classes.content}>
+          <Typography className={classes.text} variant="h5">
+            {card.card_front}
+          </Typography>
+        </CardContent>
+        <CardActions>
+          <Button size="small" variant="outlined" color="secondary">
+            Delete
+          </Button>
+          <Button size="small" variant="outlined">
+            Edit
+          </Button>
+        </CardActions>
+      </Card>
 
-        <Card onClick={flipCard} className={classes.root}>
-          <CardContent className={classes.content}>
-            <Typography className={classes.text} variant="body1">
-              {card.card_back}
-            </Typography>
-          </CardContent>
-          <CardActions>
-            <Link onClick={() => console.log(card)} to="/edit">
-              Edit
-            </Link>
-          </CardActions>
-        </Card>
-      </ReactCardFlip>
-    </React.Fragment>
+      <Card onClick={flipCard} className={classes.root}>
+        <CardContent className={classes.content}>
+          <Typography className={classes.text} variant="body1">
+            {card.card_back}
+          </Typography>
+        </CardContent>
+        <CardActions>
+          <Link onClick={() => console.log(card)} to="/edit">
+            Edit
+          </Link>
+        </CardActions>
+      </Card>
+    </ReactCardFlip>
   );
 };
 

@@ -45,8 +45,6 @@ function App() {
       });
   }, []);
 
-  console.log(decks);
-
   return (
     <ThemeProvider>
       <PageContent>
@@ -67,7 +65,7 @@ function App() {
             </Route>
 
             <Route path="/dashboard">
-              <Dashboard cards={cards} />
+              <Dashboard cards={cards} decks={decks} />
             </Route>
           </Switch>
         </Router>

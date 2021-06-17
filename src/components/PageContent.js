@@ -7,8 +7,10 @@ export default function PageContent(props) {
 
   const styles = {
     backgroundColor: isDarkMode ? 'black' : '#13141B',
-    height: '100%',
+    height: '100vh',
     width: '100%',
   };
   return <div style={styles}>{props.children}</div>;
 }
+
+//TODO - PageContent makes more sense in LayoutComponents

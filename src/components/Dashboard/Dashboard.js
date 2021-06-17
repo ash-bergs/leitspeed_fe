@@ -1,7 +1,7 @@
 import React from 'react';
-import { Link } from 'react-router-dom';
+
 //* material UI components
-import { Container, Box, Button } from '@material-ui/core';
+import { Container, Box } from '@material-ui/core';
 
 //* material UI hook
 import { withStyles } from '@material-ui/core/styles';
@@ -12,18 +12,16 @@ import Cards from '../Cards';
 import styles from './DashboardStyles';
 
 // * classes refers to MUI style overrides - style classes
-function Dashboard({ cards, classes }) {
+function Dashboard({ cards, decks, classes }) {
+  console.log('todo', decks);
+  //TODO decks is now being brought into the Dashboard, consume it!
+
   return (
-    <React.Fragment>
-      <Button variant="outlined">
-        <Link to="/add-card">Add a Card</Link>
-      </Button>
-      <Container className={classes.root} fixed>
-        <Box className={classes.box}>
-          <Cards cards={cards} />
-        </Box>
-      </Container>
-    </React.Fragment>
+    <Container className={classes.root} fixed>
+      <Box className={classes.box}>
+        <Cards cards={cards} />
+      </Box>
+    </Container>
   );
 }
 
