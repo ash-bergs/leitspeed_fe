@@ -14,17 +14,10 @@ import styles from './DashboardStyles';
 
 // * classes refers to MUI style overrides - style classes
 function Dashboard({ cards, decks, classes }) {
-  console.log('todo', decks);
-  //TODO decks is now being brought into the Dashboard, consume it!
-
   return (
-    <Container
-      className={classes.root}
-      fixed
-      style={{ border: '1px solid white' }}
-    >
+    <Container className={classes.root} fixed>
       <UserPanel decks={decks} />
-      <Box className={classes.box} style={{ border: '1px solid blue' }}>
+      <Box className={classes.box}>
         <Cards cards={cards} />
       </Box>
     </Container>

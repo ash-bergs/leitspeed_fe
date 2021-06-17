@@ -30,7 +30,15 @@ const UserPanel = ({ classes, decks }) => {
       <SubHeader options={{ variant: 'h6', component: 'h4' }}>
         User Controls
       </SubHeader>
-      <Box>
+
+      {/* Box to update currently rendered cards in Cards component - still need to get this hooked up! */}
+      <Box
+        style={{
+          backgroundColor: '#13141B',
+          color: 'white',
+          borderRadius: '5px',
+        }}
+      >
         <FormControl component="fieldset">
           <FormLabel component="legend">Your Decks</FormLabel>
           <RadioGroup name="decks" aria-label="decks">
